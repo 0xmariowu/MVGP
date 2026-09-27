@@ -13,8 +13,8 @@ How a film moves through it:
 2. **The agent works by the book.** It writes the script, the shot breakdown and each shot's prompt following
    the practice of Higgsfield's official projects. A fresh reviewer checks every shot before it is ordered, and
    anything that costs money is quoted first and waits for your yes.
-3. **The platform generates.** Video goes to Higgsfield at 1080p by default; the sample mode (样片模式) uses fal,
-   and images use apilio. The platform keeps the ledger and holds each film to its budget.
+3. **The platform generates.** Video goes to Higgsfield at 1080p by default; the sample mode (样片模式) uses fal.
+   The platform keeps the ledger and holds each film to its budget.
 4. **You watch and pick.** The desk shows the takes of every shot; pick the one you want, or send a shot back to
    be shot again.
 
