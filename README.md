@@ -1,8 +1,21 @@
 # MVGP
 
-MVGP is an AI film production platform. An agent writes shots following the Higgsfield canonical practice;
-the platform sends the work to Higgsfield, fal or apilio; the human watches and picks takes on the review desk.
-Higgsfield is the default video route. fal supplies the alternative sample mode (样片模式); apilio supplies images.
+MVGP 是一个给 AI 智能体用的拍片平台。你只管跟智能体聊想拍什么，剩下的写剧本、拆镜头、下单生成、记账，都由智能体按规范在平台上完成。片子出来后，你上工作台看片、选片，就结束了。
+
+MVGP is an agent-first film production platform. You tell an AI agent what you want to film; the agent does the
+rest on the platform by the book: script, shot breakdown, generation orders and accounting. When the takes are
+in, you watch and pick them on the review desk, and you are done.
+
+How a film moves through it:
+
+1. **Talk.** Tell the agent what to film: an original story or a recreation of an existing scene.
+2. **The agent works by the book.** It writes the script, the shot breakdown and each shot's prompt following
+   the practice of Higgsfield's official projects. A fresh reviewer checks every shot before it is ordered, and
+   anything that costs money is quoted first and waits for your yes.
+3. **The platform generates.** Video goes to Higgsfield at 1080p by default; the sample mode (样片模式) uses fal.
+   The platform keeps the ledger and holds each film to its budget.
+4. **You watch and pick.** The desk shows the takes of every shot; pick the one you want, or send a shot back to
+   be shot again.
 
 The desk runs locally on your Mac, with no login. Film and coding agents start at [AGENTS.md](AGENTS.md).
 
