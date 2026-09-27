@@ -1,0 +1,1605 @@
+{
+ "schema_version": 1,
+ "label": "lean-v1",
+ "authority": "Replaces the release ritual. Cost, routes, capabilities, cut policy, reader profile and methods are the live release-97 documents (read-only export 2026-09-26); route and reader profiles are unchanged so frozen hashes in stored intents still match.",
+ "binding": "first",
+ "cost": {
+  "authority": "LOCAL owner-authorized two-film production. Native costs and private worker credentials; all required reviews and qualifications remain mandatory.",
+  "operations": {
+   "submit": {
+    "gpt_image_2_5": {
+     "mode": "live",
+     "budget_key": "hf_owner",
+     "budget_unit": "hf_credit",
+     "estimated_cost": 3,
+     "reservation": 3,
+     "max_attempts": 4,
+     "live_controls": {
+      "pricing_verified": true,
+      "isolation_verified": true,
+      "account_limits_verified": true
+     }
+    },
+    "nano_banana_pro": {
+     "mode": "live",
+     "budget_key": "hf_owner",
+     "budget_unit": "hf_credit",
+     "estimated_cost": 2,
+     "reservation": 2,
+     "max_attempts": 4,
+     "live_controls": {
+      "pricing_verified": true,
+      "isolation_verified": true,
+      "account_limits_verified": true
+     }
+    },
+    "seedance_2_5": {
+     "mode": "live",
+     "budget_key": "hf_owner",
+     "budget_unit": "hf_credit",
+     "estimated_cost": 120,
+     "reservation": 360,
+     "max_attempts": 4,
+     "live_controls": {
+      "pricing_verified": true,
+      "isolation_verified": true,
+      "account_limits_verified": true
+     }
+    },
+    "apilio_gpt_image_2_5": {
+     "mode": "live",
+     "budget_key": "apilio_owner_10466",
+     "budget_unit": "apilio_quota",
+     "estimated_cost": 20000,
+     "reservation": 60000,
+     "max_attempts": 1,
+     "live_controls": {
+      "pricing_verified": true,
+      "isolation_verified": true,
+      "account_limits_verified": true
+     }
+    },
+    "fal_seedance_2_5": {
+     "mode": "live",
+     "budget_key": "fal_owner",
+     "budget_unit": "usd_micro",
+     "estimated_cost": 2077410,
+     "reservation": 6232230,
+     "max_attempts": 4,
+     "live_controls": {
+      "pricing_verified": true,
+      "isolation_verified": true,
+      "account_limits_verified": true
+     }
+    }
+   },
+   "observe": {
+    "image": {
+     "mode": "fake",
+     "budget_unit": "synthetic_unit",
+     "estimated_cost": 1,
+     "reservation": 1,
+     "max_attempts": 4,
+     "live_controls": {
+      "pricing_verified": false,
+      "isolation_verified": false,
+      "account_limits_verified": false
+     }
+    },
+    "video": {
+     "mode": "live",
+     "budget_key": "apilio_owner_10466",
+     "budget_unit": "apilio_quota",
+     "estimated_cost": 39360,
+     "reservation": 500000,
+     "max_attempts": 4,
+     "live_controls": {
+      "pricing_verified": true,
+      "isolation_verified": true,
+      "account_limits_verified": true
+     }
+    },
+    "audio": {
+     "mode": "fake",
+     "budget_unit": "synthetic_unit",
+     "estimated_cost": 1,
+     "reservation": 1,
+     "max_attempts": 4,
+     "live_controls": {
+      "pricing_verified": false,
+      "isolation_verified": false,
+      "account_limits_verified": false
+     }
+    }
+   },
+   "review": {
+    "standards": {
+     "mode": "live",
+     "budget_key": "jev_owner",
+     "budget_unit": "usd_micro",
+     "estimated_cost": 200000,
+     "reservation": 200000,
+     "max_attempts": 4,
+     "live_controls": {
+      "pricing_verified": true,
+      "isolation_verified": true,
+      "account_limits_verified": true
+     }
+    },
+    "director": {
+     "mode": "live",
+     "budget_key": "apilio_owner_10466",
+     "budget_unit": "apilio_quota",
+     "estimated_cost": 200000000,
+     "reservation": 200000000,
+     "max_attempts": 4,
+     "live_controls": {
+      "pricing_verified": true,
+      "isolation_verified": true,
+      "account_limits_verified": true
+     }
+    },
+    "apilio-gemini-director-v1": {
+     "mode": "live",
+     "budget_key": "apilio_owner_10466",
+     "budget_unit": "apilio_quota",
+     "estimated_cost": 80000,
+     "reservation": 1000000,
+     "max_attempts": 4,
+     "live_controls": {
+      "pricing_verified": true,
+      "isolation_verified": true,
+      "account_limits_verified": true
+     }
+    }
+   },
+   "render-cut": {
+    "mode": "local",
+    "max_attempts": 4
+   },
+   "compose": {
+    "mode": "local",
+    "max_attempts": 4
+   },
+   "complete-draft": {
+    "fal_seedance_2_5_complete": {
+     "mode": "live",
+     "budget_key": "fal_owner",
+     "budget_unit": "usd_micro",
+     "estimated_cost": 11496560,
+     "reservation": 34489680,
+     "max_attempts": 2,
+     "live_controls": {
+      "pricing_verified": true,
+      "isolation_verified": true,
+      "account_limits_verified": true
+     }
+    }
+   }
+  },
+  "live_pricing": {
+   "observer": {
+    "unit": "apilio_quota",
+    "quota_per_lightning": 500000,
+    "input_quota_per_token": 0.375,
+    "output_quota_per_token": 1.875,
+    "group": "default",
+    "token_id": 10466,
+    "reservation_quota": 500000,
+    "initial_project_tranche_quota": 5000000,
+    "owner_total_ceiling": null
+   }
+  },
+  "notes": [
+   "Native HF quotes: GPT 2k/high/sunburst=3; NBP 2k=2; Seedance 720p omni-reference durations 5/8/9/15 cost 35/56/63/105 credits. Video reserves 15-second maximum, not estimated final bill.",
+   "DeepSeek reserve uses full advertised 1M input at peak cache-miss plus 8192 output (<0.32 USD), rounds upward to 0.40 USD per turn.",
+   "Astra reserve is deliberately much larger than anticipated use: 200M quota/turn. It covers charging an entire 32MiB bounded wire payload as input token units at 5 quota plus 8192 output at 25. This is a conservative operational allowance, not a measured tokenizer or actual bill. No unverified discount used; actual native ledger reconciles.",
+   "Owner HF total 10000: allocate 4999 per film, with 2 already spent on preserved accidental probe. Other owner totals have no ceiling; replenish finite account operating tranches explicitly.",
+   "Generation methods are activated only by this separate maintainer publication; maker cannot change policies.",
+   "submit.apilio_gpt_image_2_5: apilio quota = (input + output x completion_ratio 6) x model_ratio 2.5; the 2026-09-25 probe used about 17k per 2048x1152 image. One attempt: an unknown outcome goes to the operator.",
+   "submit.fal_seedance_2_5: 480p draft at 207741 micros per second (2026-09-25 probe); held at the 30 s maximum, settled at seconds x price.",
+   "complete-draft.fal_seedance_2_5_complete: 1080p completion of the owner's pick at 1149656 micros per second; at most once per draft.",
+   "submit.seedance_2_5: Higgsfield 1080p at 12 credits per second (higgsfield generate cost, 2026-09-27); held at the 30 s maximum (360), settled at seconds x 12; estimate shown for 10 s."
+  ],
+  "owner_gates": {
+   "shot_plan": "required"
+  },
+  "owner_switches": {
+   "shot_plan_approval": false,
+   "ai_prompt_review": false,
+   "ai_director_review": false
+  }
+ },
+ "capabilities": {
+  "fal_video_capability": {
+   "authority": "LOCAL owner decision 2026-09-25 (样片就用fal.ai): takes are 480p drafts; up to 30 reference images (fal schema). Duration is sent as a string on the wire.",
+   "endpoint": "bytedance/seedance-2.5/reference-to-video",
+   "input_schema_sha256": "d4d9e0bfafd79069ff334ecae64389145b5e601f6ca89f147586b49344ed50ec",
+   "job_type": "fal_seedance_2_5",
+   "max_references": 30,
+   "params": [
+    {
+     "name": "prompt",
+     "required": true,
+     "type": "string"
+    },
+    {
+     "enum": [
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24,
+      25,
+      26,
+      27,
+      28,
+      29,
+      30
+     ],
+     "name": "duration",
+     "type": "integer"
+    },
+    {
+     "enum": [
+      "480p",
+      "720p",
+      "1080p"
+     ],
+     "name": "resolution",
+     "type": "string"
+    },
+    {
+     "enum": [
+      "21:9",
+      "16:9",
+      "4:3",
+      "1:1",
+      "3:4",
+      "9:16"
+     ],
+     "name": "aspect_ratio",
+     "type": "string"
+    },
+    {
+     "default": true,
+     "name": "generate_audio",
+     "type": "boolean"
+    },
+    {
+     "default": false,
+     "name": "draft",
+     "type": "boolean"
+    }
+   ],
+   "price_source": "fal usage 2026-09-25: 38.83k tokens x 0.0214 USD/1k = 0.830962 USD for a 4 s 480p draft",
+   "source": "fal OpenAPI https://fal.ai/api/openapi/queue/openapi.json?endpoint_id=bytedance/seedance-2.5/reference-to-video read 2026-09-25; provider probe",
+   "type": "video",
+   "usd_micros_per_second": {
+    "480p": 207741
+   },
+   "text_to_video": {
+    "authority": "a shot with no reference image goes to text-to-video; switched on for the live probe (owner 2026-09-27: 现在做)",
+    "enabled": true,
+    "endpoint": "bytedance/seedance-2.5/text-to-video"
+   }
+  },
+  "fal_complete_capability": {
+   "authority": "LOCAL: only draft_id and resolution go on the wire; duration, ratio and audio are the draft's, kept to measure the 1080p result.",
+   "endpoint": "bytedance/seedance-2.5/draft/complete",
+   "input_schema_sha256": "1849af954421df3207339a1a40affee3d9c74da0abb6b0d9e59d7fb519fdf5b7",
+   "job_type": "fal_seedance_2_5_complete",
+   "max_references": 0,
+   "params": [
+    {
+     "name": "draft_id",
+     "required": true,
+     "type": "string"
+    },
+    {
+     "enum": [
+      "1080p"
+     ],
+     "name": "resolution",
+     "type": "string"
+    },
+    {
+     "enum": [
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24,
+      25,
+      26,
+      27,
+      28,
+      29,
+      30
+     ],
+     "name": "duration",
+     "type": "integer"
+    },
+    {
+     "enum": [
+      "21:9",
+      "16:9",
+      "4:3",
+      "1:1",
+      "3:4",
+      "9:16"
+     ],
+     "name": "aspect_ratio",
+     "type": "string"
+    },
+    {
+     "name": "generate_audio",
+     "type": "boolean"
+    }
+   ],
+   "price_source": "fal usage 2026-09-25: 214.89k tokens x 0.0214 USD/1k = 4.59862353 USD for completing a 4 s draft",
+   "source": "fal OpenAPI https://fal.ai/api/openapi/queue/openapi.json?endpoint_id=bytedance/seedance-2.5/draft/complete read 2026-09-25; provider probe",
+   "type": "video",
+   "usd_micros_per_second": {
+    "1080p": 1149656
+   }
+  },
+  "fal_video_timing": {
+   "authority": "LOCAL selected timing formats supported by the adopted compiler; the 4-30 s range is fal's published schema enum",
+   "duration_contract": {
+    "backend": "fal",
+    "endpoint": "bytedance/seedance-2.5/reference-to-video",
+    "integer": true,
+    "max": 30,
+    "min": 4,
+    "source": "https://fal.ai/models/bytedance/seedance-2.5/reference-to-video/api",
+    "status": "provider",
+    "task": "generate"
+   },
+   "job_type": "fal_seedance_2_5",
+   "notes": [
+    "Duration 4-30 integer seconds is the fal endpoint enum (provider fact)."
+   ],
+   "source": "Provider duration contracts",
+   "tasks": [
+    "shot",
+    "stress"
+   ],
+   "timing_modes": [
+    "timed",
+    "stages",
+    "ordinal"
+   ]
+  },
+  "apilio_image_capability": {
+   "authority": "LOCAL owner decision 2026-09-25 (images through apilio); probe: 2048x1152 PNG as data[0].url on webstatic.aiproxy.vip; apilio /api/pricing lists gpt-image-2.5-sunburst-2k with /v1/images/generations and /v1/images/edits",
+   "endpoints": {
+    "edits": "https://api.apilio.ai/v1/images/edits",
+    "generations": "https://api.apilio.ai/v1/images/generations"
+   },
+   "job_type": "apilio_gpt_image_2_5",
+   "models": {
+    "2k": "gpt-image-2.5-sunburst-2k"
+   },
+   "params": [
+    {
+     "name": "prompt",
+     "required": true,
+     "type": "string"
+    },
+    {
+     "name": "image_references",
+     "type": "array"
+    },
+    {
+     "enum": [
+      "16:9"
+     ],
+     "name": "aspect_ratio",
+     "type": "string"
+    },
+    {
+     "enum": [
+      "2k"
+     ],
+     "name": "resolution",
+     "type": "string"
+    }
+   ],
+   "quota": {
+    "completion_ratio": 6,
+    "model_ratio": 2.5,
+    "source": "apilio pricing read 2026-09-25: quota = (input + output x 6) x 2.5; probe 35 in / 1105 out = 16663"
+   },
+   "rules": [],
+   "sizes": {
+    "16:9|2k": "2048x1152"
+   },
+   "type": "image"
+  },
+  "apilio_edit_evidence": {
+   "authority": "LOCAL probe",
+   "observed": "apilio gpt-image-2.5-sunburst edits, probe 2026-09-25: one reference (a 1600x1073 game-CG portrait) and a LIRA-style prompt returned a grey three-panel character sheet keeping the face, hair and clothing (session scratch probe/sheet_view.png). Reference-conditioned editing, not pixel preservation."
+  },
+  "hf_video_capability": {
+   "display_name": "Seedance 2.5",
+   "job_type": "seedance_2_5",
+   "params": [
+    {
+     "name": "aspect_ratio",
+     "type": "string",
+     "default": "16:9",
+     "required": false,
+     "enum": [
+      "auto",
+      "21:9",
+      "16:9",
+      "4:3",
+      "1:1",
+      "3:4",
+      "9:16"
+     ]
+    },
+    {
+     "name": "audio_references",
+     "type": "array",
+     "default": null,
+     "required": false
+    },
+    {
+     "name": "bitrate_mode",
+     "type": "string",
+     "default": "standard",
+     "required": false,
+     "enum": [
+      "standard",
+      "high"
+     ]
+    },
+    {
+     "name": "duration",
+     "type": "integer",
+     "default": 5,
+     "required": false
+    },
+    {
+     "name": "end_image",
+     "type": "object|null",
+     "default": null,
+     "required": false
+    },
+    {
+     "name": "extension_mode",
+     "type": "string|null",
+     "default": null,
+     "required": false,
+     "enum": [
+      "backward",
+      "forward"
+     ]
+    },
+    {
+     "name": "generate_audio",
+     "type": "boolean",
+     "default": true,
+     "required": false
+    },
+    {
+     "name": "image_references",
+     "type": "array",
+     "default": null,
+     "required": false
+    },
+    {
+     "name": "mode",
+     "type": "string",
+     "default": "t2v",
+     "required": false,
+     "enum": [
+      "t2v",
+      "omni_reference",
+      "video_edit",
+      "video_extension"
+     ]
+    },
+    {
+     "name": "prompt",
+     "type": "string",
+     "default": null,
+     "required": true
+    },
+    {
+     "name": "resolution",
+     "type": "string",
+     "default": "720p",
+     "required": false,
+     "enum": [
+      "480p",
+      "720p",
+      "1080p"
+     ]
+    },
+    {
+     "name": "start_image",
+     "type": "object|null",
+     "default": null,
+     "required": false
+    },
+    {
+     "name": "video_references",
+     "type": "array",
+     "default": null,
+     "required": false
+    }
+   ],
+   "rules": [
+    {
+     "cel": "params.mode != \"t2v\" || size(params.image_references) + size(params.video_references) + size(params.audio_references) + (params.start_image == null ? 0 : 1) + (params.end_image == null ? 0 : 1) == 0",
+     "message": "mode 't2v' does not accept reference media"
+    },
+    {
+     "cel": "params.mode != \"omni_reference\" || size(params.image_references) + size(params.video_references) + size(params.audio_references) + (params.start_image == null ? 0 : 1) + (params.end_image == null ? 0 : 1) > 0",
+     "message": "mode 'omni_reference' requires at least one reference media item"
+    },
+    {
+     "cel": "size(params.image_references) + size(params.video_references) + size(params.audio_references) + (params.start_image == null ? 0 : 1) + (params.end_image == null ? 0 : 1) <= 50",
+     "message": "at most 50 reference media items are allowed in total"
+    },
+    {
+     "cel": "params.mode != \"video_edit\" || size(params.video_references) == 1",
+     "message": "mode 'video_edit' requires exactly one video reference"
+    },
+    {
+     "cel": "params.mode != \"video_extension\" || size(params.video_references) >= 1",
+     "message": "mode 'video_extension' requires at least one video reference"
+    },
+    {
+     "cel": "params.mode != \"video_extension\" || !(params.extension_mode == null)",
+     "message": "'extension_mode' is required for mode 'video_extension'"
+    },
+    {
+     "cel": "params.mode == \"video_extension\" || params.extension_mode == null",
+     "message": "'extension_mode' is only allowed for mode 'video_extension'"
+    },
+    {
+     "cel": "size(params.image_references) + (params.start_image == null ? 0 : 1) + (params.end_image == null ? 0 : 1) <= 30",
+     "message": "at most 30 images are allowed (counting start_image and end_image)"
+    },
+    {
+     "cel": "params.mode == \"omni_reference\" || (params.start_image == null && params.end_image == null)",
+     "message": "start_image and end_image are only allowed for mode 'omni_reference'"
+    }
+   ],
+   "type": "video"
+  },
+  "hf_video_timing": {
+   "job_type": "seedance_2_5",
+   "tasks": [
+    "shot",
+    "stress"
+   ],
+   "timing_modes": [
+    "timed",
+    "stages",
+    "ordinal"
+   ],
+   "authority": "LOCAL selected timing formats supported by the adopted compiler, not provider-guaranteed motion control",
+   "duration_contract": {
+    "task": "generate",
+    "backend": "higgsfield",
+    "model": "seedance_2_5",
+    "min": 4,
+    "max": 30,
+    "integer": true,
+    "status": "local-window",
+    "source": "higgsfield model get seedance_2_5 --json; integer verified, no range exposed; existing local 4–30 hard window retained, including force"
+   },
+   "source": "Provider duration contracts",
+   "notes": [
+    "Duration integer is provider-verified. The 4–30 second range is a retained local window, not a discovered provider limit.",
+    "Stages and ordinal apply only when selected with required rationale and method-specific end states; no global adoption of other HF timing variants."
+   ]
+  },
+  "hf_video_price": {
+   "authority": "Owner decision 2026-09-27: Higgsfield is the shooting route, takes at 1080p",
+   "job_type": "seedance_2_5",
+   "credits_per_second": {
+    "480p": 3,
+    "720p": 7,
+    "1080p": 12
+   },
+   "source": "higgsfield generate cost seedance_2_5 --resolution <r> --duration 5|15 --json, 2026-09-27: 480p 15/45, 720p 35/105, 1080p 60/180 credits (the same per second at 5 s and 15 s)"
+  }
+ },
+ "routes": {
+  "image_routes": {
+   "authority": "LOCAL implementation scope; provider parameter support is not edit verification | 2026-09-25: images through apilio (owner); HF image profiles kept, dormant.",
+   "method_routes": {
+    "mvgp-image-generate-v1": "apilio-gpt-image25-v1",
+    "mvgp-image-edit-v1": "apilio-gpt-image25-v1"
+   },
+   "method_recipes": {
+    "mvgp-image-generate-v1": [
+     "base-portrait",
+     "state-variant",
+     "location-angle",
+     "pose",
+     "diagram"
+    ],
+    "mvgp-image-edit-v1": [
+     "state-variant"
+    ]
+   },
+   "profiles": {
+    "apilio-gpt-image25-v1": {
+     "job_type": "apilio_gpt_image_2_5",
+     "tasks": [
+      "image",
+      "image-edit"
+     ],
+     "aspect_ratios": [
+      "16:9"
+     ],
+     "resolutions": [
+      "2k"
+     ],
+     "defaults": {
+      "aspect_ratio": "16:9",
+      "resolution": "2k"
+     },
+     "max_references": 4,
+     "capability_role": "apilio_image_capability",
+     "reference_edit_verified": true,
+     "reference_edit_evidence_role": "apilio_edit_evidence",
+     "max_reference_bytes": 33554432,
+     "output_contract": {
+      "schema_version": 1,
+      "authority": "LOCAL",
+      "modality": "image",
+      "minimum_edge": "long",
+      "minimum_pixels_by_resolution": {
+       "2k": 2048
+      },
+      "aspect_ratio_relative_tolerance": 0.01,
+      "duration_tolerance_seconds": null,
+      "require_requested_audio": false
+     }
+    }
+   }
+  },
+  "video_routes": {
+   "authority": "LOCAL current D2/D3 route; reference-only, no original-footage input; draft-v2 (re-audit 2026-09-27): 30 references as fal takes (HF exceeded 9 in 2 of 11); draft-v1 stays for the candidates that froze its hash; hf-seedance25-1080p-v1 (owner 2026-09-27): Higgsfield Seedance 2.5 at 1080p is the default shooting route, the fal draft route serves 样片模式 only",
+   "method_routes": {
+    "mvgp-video-v1": "fal-seedance25-draft-v2",
+    "mvgp-video-hf-v1": "hf-seedance25-1080p-v1"
+   },
+   "profiles": {
+    "fal-seedance25-draft-v1": {
+     "job_type": "fal_seedance_2_5",
+     "tasks": [
+      "shot",
+      "stress"
+     ],
+     "aspect_ratios": [
+      "21:9",
+      "16:9",
+      "4:3",
+      "1:1",
+      "3:4",
+      "9:16"
+     ],
+     "resolutions": [
+      "480p"
+     ],
+     "max_references": 9,
+     "capability_role": "fal_video_capability",
+     "timing_capability_role": "fal_video_timing",
+     "timing_modes": [
+      "timed",
+      "stages",
+      "ordinal"
+     ],
+     "mode": "reference",
+     "draft": true,
+     "legacy_duration_route": {
+      "backend": "fal",
+      "model": "fal_seedance_2_5",
+      "endpoint": "bytedance/seedance-2.5/reference-to-video"
+     },
+     "output_contract": {
+      "schema_version": 1,
+      "authority": "LOCAL",
+      "modality": "video",
+      "minimum_edge": "short",
+      "minimum_pixels_by_resolution": {
+       "480p": 480,
+       "720p": 720,
+       "1080p": 1080
+      },
+      "aspect_ratio_relative_tolerance": 0.01,
+      "duration_tolerance_seconds": 0.25,
+      "require_requested_audio": true
+     }
+    },
+    "fal-seedance25-draft-v2": {
+     "job_type": "fal_seedance_2_5",
+     "tasks": [
+      "shot",
+      "stress"
+     ],
+     "aspect_ratios": [
+      "21:9",
+      "16:9",
+      "4:3",
+      "1:1",
+      "3:4",
+      "9:16"
+     ],
+     "resolutions": [
+      "480p"
+     ],
+     "max_references": 30,
+     "capability_role": "fal_video_capability",
+     "timing_capability_role": "fal_video_timing",
+     "timing_modes": [
+      "timed",
+      "stages",
+      "ordinal"
+     ],
+     "mode": "reference",
+     "draft": true,
+     "legacy_duration_route": {
+      "backend": "fal",
+      "model": "fal_seedance_2_5",
+      "endpoint": "bytedance/seedance-2.5/reference-to-video"
+     },
+     "output_contract": {
+      "schema_version": 1,
+      "authority": "LOCAL",
+      "modality": "video",
+      "minimum_edge": "short",
+      "minimum_pixels_by_resolution": {
+       "480p": 480,
+       "720p": 720,
+       "1080p": 1080
+      },
+      "aspect_ratio_relative_tolerance": 0.01,
+      "duration_tolerance_seconds": 0.25,
+      "require_requested_audio": true
+     }
+    },
+    "hf-seedance25-1080p-v1": {
+     "job_type": "seedance_2_5",
+     "tasks": [
+      "shot",
+      "stress"
+     ],
+     "aspect_ratios": [
+      "21:9",
+      "16:9",
+      "4:3",
+      "1:1",
+      "3:4",
+      "9:16"
+     ],
+     "resolutions": [
+      "1080p"
+     ],
+     "max_references": 30,
+     "capability_role": "hf_video_capability",
+     "timing_capability_role": "hf_video_timing",
+     "timing_modes": [
+      "timed",
+      "stages",
+      "ordinal"
+     ],
+     "mode": "omni_reference",
+     "legacy_duration_route": {
+      "backend": "higgsfield",
+      "model": "seedance_2_5",
+      "endpoint": "seedance_2_5"
+     },
+     "output_contract": {
+      "schema_version": 1,
+      "authority": "LOCAL",
+      "modality": "video",
+      "minimum_edge": "short",
+      "minimum_pixels_by_resolution": {
+       "720p": 720,
+       "1080p": 1080
+      },
+      "aspect_ratio_relative_tolerance": 0.01,
+      "duration_tolerance_seconds": 0.25,
+      "require_requested_audio": true
+     }
+    }
+   }
+  }
+ },
+ "cut_policy": {
+  "schema_version": 1,
+  "policy_id": "local-cut-assembly-v1",
+  "authority": "LOCAL: approved F006.S6 assembly and finishing policy; not an HF generation method",
+  "source_refs": [
+   {
+    "role": "repo_source_40",
+    "path": "production/SPEC.md",
+    "start": 191,
+    "end": 197
+   }
+  ],
+  "assembly": {
+   "trim_mode": "exact-source",
+   "transition": "hard-cut",
+   "implicit_trim_seconds": 0,
+   "playback_rate": 1
+  },
+  "output": {
+   "container": "mp4",
+   "width": 1920,
+   "height": 1080,
+   "fps": 24,
+   "video_codec": "h264",
+   "audio_codec": "aac",
+   "pixel_format": "yuv420p",
+   "fit": "contain",
+   "audio_sample_rate": 48000,
+   "audio_channels": 2,
+   "frame_quantization": "cumulative-nearest-frame",
+   "audio_quantization": "cumulative-nearest-sample"
+  },
+  "limits": {
+   "max_duration_seconds": 300,
+   "max_segments": 1000,
+   "max_input_bytes": 1073741824,
+   "max_total_input_bytes": 8589934592,
+   "timeout_seconds": 600,
+   "max_intermediate_bytes": 8589934592
+  },
+  "sound": {
+   "default_mode": "source-audio",
+   "missing_source_audio": "silence",
+   "max_sound_inputs": 1,
+   "explicit_mode": "whole-cut-replacement",
+   "replacement_start_seconds": 0,
+   "replacement_min_duration": "cut-duration",
+   "mixing": false
+  },
+  "context": {
+   "mode": "aggregate-source-methods",
+   "method_catalog_task": null,
+   "required": [
+    "source-methods",
+    "scenes",
+    "intent",
+    "ordered-take-revisions",
+    "exact-trims",
+    "sound-inputs"
+   ]
+  },
+  "finishing": {
+   "required_records": [
+    "sound",
+    "cleanup",
+    "color",
+    "delivery"
+   ],
+   "required_bindings": [
+    "cut",
+    "media"
+   ],
+   "binding_fields": [
+    "object_id",
+    "revision",
+    "digest"
+   ],
+   "evidence_required": true,
+   "automatic_certification": false,
+   "independent_cut_review_required": true,
+   "human_final_acceptance_required": true
+  },
+  "imported_unverified": {
+   "rough_cut_allowed": true,
+   "final_acceptance_allowed": false
+  },
+  "notes": [
+   "The author supplies only ordered take references, explicit source-time trims, optional sound references and intent. Output and resource limits are release-owned.",
+   "Use every declared source interval exactly, in order, without handles, hidden trimming, crossfades or retiming. Fixed output frame rate does not certify native source resolution or add detail.",
+   "With no sound input, preserve source audio over each declared interval; synthesize silence only where source audio is absent. One explicit sound input replaces the complete cut soundtrack from time zero and must actually cover the cut duration. Do not loop, time-stretch, mix, or infer sound trim controls.",
+   "Rendering records actual source hashes and selected-take, delivery and upscale lineage. Imported-unverified inputs may appear in labelled rough cuts but cannot thereby satisfy final acceptance.",
+   "External finishing media and sound, cleanup, color and delivery records bind exact cut and media versions. Changed cuts or media require fresh affected evidence; file existence and render success are not finishing certification.",
+   "The cut aggregates source method evidence instead of granting any HF shot method task=cut. Execution requires the active deployed release and this local policy; independent review assesses the actual cut under this policy and applicable source methods.",
+   "Policy publication does not itself enable a renderer, a paid generation route, automatic mastering or final acceptance."
+  ]
+ },
+ "reader": {
+  "role_routes": {
+   "observer": "apilio-gemini-observer-v1"
+  },
+  "profiles": {
+   "apilio-gemini-observer-v1": {
+    "role": "observer",
+    "purpose": "observations",
+    "http_method": "POST",
+    "endpoint": "https://api.apilio.ai/v1beta/models/gemini-3.8-flash:generateContent",
+    "model": "gemini-3.8-flash",
+    "key_env": "APILIO_AI_KEY",
+    "auth_scheme": "bearer_header",
+    "protocol": "native_gemini",
+    "verified_at": "2026-09-18",
+    "evidence_ids": [
+     "gemini",
+     "gemini-fps1",
+     "gemini-slow4",
+     "gemini-audio"
+    ],
+    "allowed_input_modalities": [
+     "text",
+     "video",
+     "audio_in_video"
+    ],
+    "allowed_output_modalities": [
+     "text"
+    ],
+    "tools": {
+     "enabled": false,
+     "selection_authority": "service",
+     "read_only": true,
+     "scope": "allowlisted immutable evidence from the exact project/target/context",
+     "max_calls": 0,
+     "tool_execution_may_start_paid_work": false
+    },
+    "requested_settings": {
+     "generationConfig": {
+      "maxOutputTokens": 8192,
+      "responseMimeType": "application/json"
+     },
+     "videoMetadata": {
+      "fps": 1
+     },
+     "fps_note": "Initial request value only; effective cadence remains unknown, not a universal sampling-quality rule."
+    },
+    "observed_settings": {
+     "inline_mp4_sequence_correct": true,
+     "speech_phrase_correct_in_sound_bearing_mp4": true,
+     "standalone_audio_tested": false,
+     "standalone_image_tested": false,
+     "tools_tested": false,
+     "response_mime_parameter_accepted": true,
+     "strict_json_observed": false,
+     "json_wrappers_observed": [
+      "fenced JSON",
+      "text outside JSON fence"
+     ],
+     "fps_effect_verified": false,
+     "fps_probe_video_tokens": {
+      "requested_1fps": 420,
+      "requested_4fps": 420,
+      "silent_4x_retimed_requested_1fps": 1678
+     },
+     "audio_token_breakdown_returned": false,
+     "video_token_growth_proves_exact_frame_coverage": false
+    },
+    "limits": {
+     "authority": "LOCAL initial service policy, not a tested provider maximum or HF rule",
+     "max_model_turns": 1,
+     "max_tool_calls_total": 0,
+     "max_input_tokens_per_turn": 64000,
+     "max_input_bytes_per_turn": 33554432,
+     "max_output_tokens_per_turn": 8192,
+     "max_response_bytes": 1048576,
+     "max_tool_result_bytes": 65536,
+     "max_tool_result_tokens": 4096,
+     "max_images_per_turn": 0,
+     "max_video_files_per_turn": 2,
+     "max_submitted_video_seconds_total": 240,
+     "request_timeout_seconds": 120,
+     "attempt_wall_seconds": 120,
+     "overflow_action": "insufficient_context; never silently truncate required evidence"
+    },
+    "identity": {
+     "response_field": "modelVersion",
+     "allowed_returned_models": [
+      "gemini-3.8-flash"
+     ],
+     "alias_is_immutable_weights": false,
+     "upstream_provenance": "proxy_echo_only",
+     "unexpected_or_missing_identity_action": "reject",
+     "alias_change_requires": "maintainer publication and renewed capability probes"
+    },
+    "output_policy": {
+     "purpose": "untrusted observations; never review receipt",
+     "valid_json_seen_in_probe": false,
+     "schema_enforcement_verified": false,
+     "strip_fences_or_extract_substring_for_authoritative_verdict": false,
+     "invalid_required_output_action": "retain raw bounded response; unresolved/failed, never pass",
+     "structured_observation_status": "JSON MIME request is best effort; retain fenced/prose raw response as untrusted observation and flag structured parsing failure."
+    },
+    "network_policy": {
+     "follow_redirects": false,
+     "automatic_retries": 0,
+     "fallback_routes": [],
+     "remote_resume_verified": false,
+     "remote_cancel_verified": false,
+     "unknown_outcome": "persist unknown; no automatic resubmission"
+    },
+    "budget": {
+     "pricing": {
+      "unit": "apilio_quota",
+      "quota_per_lightning": 500000,
+      "input_quota_per_token": 0.375,
+      "output_quota_per_token": 1.875,
+      "group": "default",
+      "token_id": 10466,
+      "reservation_quota": 500000,
+      "initial_project_tranche_quota": 5000000,
+      "owner_total_ceiling": null
+     },
+     "pricing_verified_at": "2026-09-19",
+     "currency_billed_in_probe": null,
+     "reservation_required_per_turn": true,
+     "issue_lineage_attempt_limit_required": true,
+     "missing_pricing_action": "block_live_dispatch",
+     "missing_usage_action": "unknown; retain reservation pending reconciliation",
+     "worst_case_reservation_required": true,
+     "max_input_and_output_reserved": true,
+     "refund_on_local_cancel": false
+    },
+    "enablement": {
+     "live_enabled": true,
+     "isolation_verified": true,
+     "blocked_on": [],
+     "fake_development": {
+      "enabled": true,
+      "network_allowed": false,
+      "credentials_allowed": false,
+      "author_may_select_fake_or_live": false
+     }
+    },
+    "author_overrides": [],
+    "supported_media_encodings": {
+     "video": [
+      "inlineData:video/mp4"
+     ],
+     "audio_in_video": [
+      "inlineData:video/mp4"
+     ]
+    },
+    "retiming_policy": {
+     "optional_silent_visual_derivative_factor": 4,
+     "requires": [
+      "original media hash",
+      "submitted derivative hash",
+      "explicit time_scale",
+      "source_offset_seconds",
+      "original-speed input for sound/rhythm"
+     ],
+     "source_time_formula": "source_offset_seconds + submitted_time_seconds / time_scale",
+     "exact_sampling_coverage": "unknown",
+     "sampling_override_authority": "released policy; requests cannot claim actual consumed FPS"
+    },
+    "frame_evidence": {
+     "enabled": true,
+     "authority": "LOCAL",
+     "source": "original-media",
+     "timestamp_origin": "format.start_time",
+     "limits": {
+      "max_frames": 6,
+      "max_width": 960,
+      "max_height": 960,
+      "max_source_bytes": 536870912,
+      "max_source_pixels": 40000000,
+      "max_decoded_frames": 30000,
+      "max_probe_bytes": 8388608,
+      "max_png_bytes": 4194304,
+      "max_total_png_bytes": 25165824,
+      "timeout_seconds": 60
+     },
+     "exhaustive": false,
+     "replaces_original_video": false,
+     "description": "Up to six actual decoded frames including endpoints; timestamped viewing aids. Preserve original video/audio as primary observation input."
+    }
+   }
+  }
+ },
+ "methods": {
+  "mvgp-image-edit-v1": {
+   "task": "image-edit",
+   "scope": "Approved F013.S1 local scoped edit profile; explicit original/base, authored CHANGE/PRESERVE and optional mask.",
+   "modules": {
+    "visual": [
+     "photoreal",
+     "project-animation"
+    ],
+    "reference": [
+     "asset-inputs"
+    ],
+    "timing": [
+     "not-applicable"
+    ],
+    "acting": [
+     "not-applicable"
+    ]
+   },
+   "allowed_combinations": [
+    {
+     "visual": "photoreal",
+     "reference": "asset-inputs",
+     "timing": "not-applicable",
+     "acting": "not-applicable"
+    },
+    {
+     "visual": "project-animation",
+     "reference": "asset-inputs",
+     "timing": "not-applicable",
+     "acting": "not-applicable"
+    }
+   ],
+   "sources": [
+    {
+     "source": "local-assets",
+     "start": 80,
+     "end": 101
+    },
+    {
+     "source": "lira",
+     "start": 159,
+     "end": 183
+    },
+    {
+     "source": "lira",
+     "start": 457,
+     "end": 481
+    }
+   ],
+   "status": {
+    "documented": true,
+    "adopted": true,
+    "implemented": false,
+    "enabled": false
+   },
+   "adoption_evidence": [
+    "Approved platform plan F013.S1",
+    "local-assets"
+   ],
+   "required_capabilities": [
+    "image-edit-compiler",
+    "image-edit",
+    "standards-review",
+    "director-review"
+   ],
+   "release_evidence": {
+    "implementation": [],
+    "valid_consumers": [],
+    "invalid_consumers": [],
+    "provider_capability": []
+   },
+   "unsupported_reason": "No governed-platform implementation/release evidence yet.",
+   "local_departures": [
+    "Local scoped edit recipe; prompt does not prove unchanged pixel equality.",
+    "Deterministic exact-pixel composition uses a different operation."
+   ],
+   "recipe_rules": [
+    "Agent supplies creative image content and explicit asset role.",
+    "Project visual recipe is exactly one of photoreal/project-animation.",
+    "Platform compiles task/reference/parameter contract; no automatic photographic suffix for animation.",
+    "Require original/base identity and explicit CHANGE/PRESERVE content.",
+    "Optional mask belongs to this exact base image and selected edit capability.",
+    "No claim of unchanged pixels solely from a prompt or returned asset hash."
+   ],
+   "operation": "image_edit",
+   "task_aliases": []
+  },
+  "mvgp-image-generate-v1": {
+   "task": "image",
+   "scope": "Approved F013.S1 local image profile; coherent authored prose and explicit asset role, selected project visual recipe.",
+   "modules": {
+    "visual": [
+     "photoreal",
+     "project-animation"
+    ],
+    "reference": [
+     "asset-inputs"
+    ],
+    "timing": [
+     "not-applicable"
+    ],
+    "acting": [
+     "not-applicable"
+    ]
+   },
+   "allowed_combinations": [
+    {
+     "visual": "photoreal",
+     "reference": "asset-inputs",
+     "timing": "not-applicable",
+     "acting": "not-applicable"
+    },
+    {
+     "visual": "project-animation",
+     "reference": "asset-inputs",
+     "timing": "not-applicable",
+     "acting": "not-applicable"
+    }
+   ],
+   "sources": [
+    {
+     "source": "local-assets",
+     "start": 80,
+     "end": 101
+    },
+    {
+     "source": "lira",
+     "start": 159,
+     "end": 183
+    },
+    {
+     "source": "lira",
+     "start": 457,
+     "end": 481
+    }
+   ],
+   "status": {
+    "documented": true,
+    "adopted": true,
+    "implemented": false,
+    "enabled": false
+   },
+   "adoption_evidence": [
+    "Approved platform plan F013.S1",
+    "local-assets"
+   ],
+   "required_capabilities": [
+    "image-compiler",
+    "image-generate",
+    "standards-review",
+    "director-review"
+   ],
+   "release_evidence": {
+    "implementation": [],
+    "valid_consumers": [],
+    "invalid_consumers": [],
+    "provider_capability": []
+   },
+   "unsupported_reason": "No governed-platform implementation/release evidence yet.",
+   "local_departures": [
+    "Local minimal image recipe; no wholesale LIRA provider exclusivity, AI Cast or historical API limits."
+   ],
+   "recipe_rules": [
+    "Agent supplies creative image content and explicit asset role.",
+    "Project visual recipe is exactly one of photoreal/project-animation.",
+    "Platform compiles task/reference/parameter contract; no automatic photographic suffix for animation."
+   ],
+   "operation": "image_generate",
+   "task_aliases": []
+  },
+  "mvgp-video-v1": {
+   "task": "shot",
+   "scope": "Existing MVGP D2/D3 default, preserving its exact local restrictions.",
+   "modules": {
+    "visual": [
+     "photoreal",
+     "project-animation"
+    ],
+    "reference": [
+     "references-only"
+    ],
+    "timing": [
+     "timed",
+     "local-selected-stages",
+     "local-selected-ordinal"
+    ],
+    "acting": [
+     "local-d3"
+    ]
+   },
+   "allowed_combinations": [
+    {
+     "visual": "photoreal",
+     "reference": "references-only",
+     "timing": "timed",
+     "acting": "local-d3"
+    },
+    {
+     "visual": "project-animation",
+     "reference": "references-only",
+     "timing": "timed",
+     "acting": "local-d3"
+    },
+    {
+     "visual": "photoreal",
+     "reference": "references-only",
+     "timing": "local-selected-stages",
+     "acting": "local-d3"
+    },
+    {
+     "visual": "project-animation",
+     "reference": "references-only",
+     "timing": "local-selected-stages",
+     "acting": "local-d3"
+    },
+    {
+     "visual": "photoreal",
+     "reference": "references-only",
+     "timing": "local-selected-ordinal",
+     "acting": "local-d3"
+    },
+    {
+     "visual": "project-animation",
+     "reference": "references-only",
+     "timing": "local-selected-ordinal",
+     "acting": "local-d3"
+    }
+   ],
+   "sources": [
+    {
+     "source": "local-d2",
+     "start": 112,
+     "end": 115
+    },
+    {
+     "source": "local-d3",
+     "start": 69,
+     "end": 69
+    },
+    {
+     "source": "legacy-assembler",
+     "start": 584,
+     "end": 669
+    },
+    {
+     "source": "legacy-assembler",
+     "start": 725,
+     "end": 748
+    },
+    {
+     "source": "local-timing",
+     "start": 160,
+     "end": 162
+    }
+   ],
+   "status": {
+    "documented": true,
+    "adopted": true,
+    "implemented": false,
+    "enabled": false
+   },
+   "adoption_evidence": [
+    "local-d2",
+    "local-d3"
+   ],
+   "required_capabilities": [
+    "legacy-compiler",
+    "reference-binding",
+    "standards-review",
+    "director-review"
+   ],
+   "release_evidence": {
+    "implementation": [],
+    "valid_consumers": [],
+    "invalid_consumers": [],
+    "provider_capability": []
+   },
+   "unsupported_reason": "No governed-platform implementation/release evidence yet.",
+   "local_departures": [
+    "Fifteen-block D2 serialization.",
+    "D3 mixed acting form is a local owner choice.",
+    "Do not enable another source recipe by changing a label.",
+    "Local D2 serialization retains explicit timed/stages/ordinal selection. Choosing stages does not adopt the entire flat-cutout long-take method or silently impose its reference/camera recipe."
+   ],
+   "format_module": "local-d2",
+   "legacy_implementation": {
+    "inspected": true,
+    "source": "legacy-assembler",
+    "meaning": "Existing local input assembly only; not governed-platform enablement or visual success."
+   },
+   "operation": "video_generate",
+   "task_aliases": [
+    "stress"
+   ],
+   "stress_scope": "Same video compiler and capabilities for an asset-motion probe; probe count never proves recognition.",
+   "timing_selections": {
+    "timed": {
+     "module": "timed",
+     "required_model_task_capability": "timing.timed",
+     "master_wide_allowed": true,
+     "default_when_unspecified": true
+    },
+    "stages": {
+     "module": "local-selected-stages",
+     "required_model_task_capability": "timing.stages",
+     "master_wide_allowed": false,
+     "rationale_required": true,
+     "stage_end_states_required": true
+    },
+    "ordinal": {
+     "module": "local-selected-ordinal",
+     "required_model_task_capability": "timing.ordinal",
+     "master_wide_allowed": false,
+     "rationale_required": true
+    }
+   },
+   "timing_selection_policy": "Resolve authored card mode through this mapping, verify its exact allowed combination and released generation-model/task capability, then compile. Seedance 2.5 stages and Seedance 2.0 ordinal are source-scoped examples, not a universal model-name switch. Missing capability rejects; never silently coerce to timed."
+  },
+  "mvgp-video-hf-v1": {
+   "task": "shot",
+   "scope": "Higgsfield Seedance 2.5 at 1080p, the default shooting route (plan mvgp-0926 F033); the same writer, references and timing as mvgp-video-v1.",
+   "modules": {
+    "visual": [
+     "photoreal",
+     "project-animation"
+    ],
+    "reference": [
+     "references-only"
+    ],
+    "timing": [
+     "timed",
+     "local-selected-stages",
+     "local-selected-ordinal"
+    ],
+    "acting": [
+     "local-d3"
+    ]
+   },
+   "allowed_combinations": [
+    {
+     "visual": "photoreal",
+     "reference": "references-only",
+     "timing": "timed",
+     "acting": "local-d3"
+    },
+    {
+     "visual": "project-animation",
+     "reference": "references-only",
+     "timing": "timed",
+     "acting": "local-d3"
+    },
+    {
+     "visual": "photoreal",
+     "reference": "references-only",
+     "timing": "local-selected-stages",
+     "acting": "local-d3"
+    },
+    {
+     "visual": "project-animation",
+     "reference": "references-only",
+     "timing": "local-selected-stages",
+     "acting": "local-d3"
+    },
+    {
+     "visual": "photoreal",
+     "reference": "references-only",
+     "timing": "local-selected-ordinal",
+     "acting": "local-d3"
+    },
+    {
+     "visual": "project-animation",
+     "reference": "references-only",
+     "timing": "local-selected-ordinal",
+     "acting": "local-d3"
+    }
+   ],
+   "sources": [
+    {
+     "source": "local-d2",
+     "start": 112,
+     "end": 115
+    },
+    {
+     "source": "local-d3",
+     "start": 69,
+     "end": 69
+    },
+    {
+     "source": "legacy-assembler",
+     "start": 584,
+     "end": 669
+    },
+    {
+     "source": "legacy-assembler",
+     "start": 725,
+     "end": 748
+    },
+    {
+     "source": "local-timing",
+     "start": 160,
+     "end": 162
+    }
+   ],
+   "status": {
+    "documented": true,
+    "adopted": true,
+    "implemented": false,
+    "enabled": false
+   },
+   "adoption_evidence": [
+    "local-d2",
+    "local-d3"
+   ],
+   "required_capabilities": [
+    "legacy-compiler",
+    "reference-binding",
+    "standards-review",
+    "director-review"
+   ],
+   "release_evidence": {
+    "implementation": [],
+    "valid_consumers": [],
+    "invalid_consumers": [],
+    "provider_capability": []
+   },
+   "unsupported_reason": "No governed-platform implementation/release evidence yet.",
+   "local_departures": [
+    "Fifteen-block D2 serialization.",
+    "D3 mixed acting form is a local owner choice.",
+    "Do not enable another source recipe by changing a label.",
+    "Local D2 serialization retains explicit timed/stages/ordinal selection. Choosing stages does not adopt the entire flat-cutout long-take method or silently impose its reference/camera recipe."
+   ],
+   "format_module": "local-d2",
+   "legacy_implementation": {
+    "inspected": true,
+    "source": "legacy-assembler",
+    "meaning": "Existing local input assembly only; not governed-platform enablement or visual success."
+   },
+   "operation": "video_generate",
+   "task_aliases": [
+    "stress"
+   ],
+   "stress_scope": "Same video compiler and capabilities for an asset-motion probe; probe count never proves recognition.",
+   "timing_selections": {
+    "timed": {
+     "module": "timed",
+     "required_model_task_capability": "timing.timed",
+     "master_wide_allowed": true,
+     "default_when_unspecified": true
+    },
+    "stages": {
+     "module": "local-selected-stages",
+     "required_model_task_capability": "timing.stages",
+     "master_wide_allowed": false,
+     "rationale_required": true,
+     "stage_end_states_required": true
+    },
+    "ordinal": {
+     "module": "local-selected-ordinal",
+     "required_model_task_capability": "timing.ordinal",
+     "master_wide_allowed": false,
+     "rationale_required": true
+    }
+   },
+   "timing_selection_policy": "Resolve authored card mode through this mapping, verify its exact allowed combination and released generation-model/task capability, then compile. Seedance 2.5 stages and Seedance 2.0 ordinal are source-scoped examples, not a universal model-name switch. Missing capability rejects; never silently coerce to timed."
+  }
+ }
+}

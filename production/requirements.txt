@@ -1,0 +1,14 @@
+# Python 3.12 is the implementation/test baseline (installed locally and in Docker).
+# Bootstrap: select Python 3.12 on PATH before the plan's python3 -m venv command.
+# Versions verified from official PyPI metadata on 2026-09-18.
+# stdlib unittest/sqlite3; HTTPX for REST/TestClient, Playwright for real-browser QA.
+fastapi==0.141.1
+uvicorn==0.53.0
+httpx==0.28.1
+pydantic==2.13.5
+PyJWT==2.14.0
+cryptography==50.0.1
+playwright==1.63.0
+Pillow==12.3.0
+ruff==0.16.8
+mypy==2.3.1

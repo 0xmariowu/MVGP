@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MVGP 看片</title>
+<link rel="stylesheet" href="/viewer/review.css">
+<link rel="stylesheet" href="/viewer/project.css">
+</head>
+<body>
+<div class="app">
+  <aside class="side" aria-label="项目栏">
+    <div class="brand">MVGP</div>
+    <div class="side-label">项目</div>
+    <nav id="projects" class="projects"></nav>
+    <div class="me">
+      <span class="avatar">老</span><span class="me-name">老板</span>
+      <button id="open-settings" class="icon-btn" type="button" title="个人设置"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"></path><circle cx="12" cy="12" r="3"></circle></svg></button>
+    </div>
+  </aside>
+
+  <main class="main">
+    <header class="bar">
+      <div class="bar-left">
+        <span id="proj-title" class="proj-title"></span>
+        <div class="tabs" role="tablist">
+          <button type="button" data-filter="todo">待审<span class="count" hidden></span></button>
+          <button type="button" data-filter="all">全部</button>
+        </div>
+      </div>
+      <div class="bar-right">
+        <button id="toggle-cut" class="btn-outline" type="button"><span class="cut-icon"><span></span></span><span id="cut-label">看成片</span></button>
+        <span class="sep"></span>
+        <button id="copy-all" class="btn-outline muted" type="button">复制给 Agent</button>
+      </div>
+    </header>
+
+    <section id="login" class="login" hidden>
+      <div class="login-card">
+        <div class="login-title">进入看片台</div>
+        <div class="login-sub">用你的账号进入。选片和确认只能由你本人完成。</div>
+        <button id="employee-login" class="btn-dark" type="button">进入</button>
+      </div>
+    </section>
+
+    <section id="cut-view" class="cut" hidden>
+      <div class="cut-inner">
+        <div class="cut-stage">
+          <video id="cut-video" playsinline preload="metadata"></video>
+          <div id="cut-empty" class="cut-empty" hidden><div><strong>还没定任何一条</strong><span>去「待审」选几条，这里就能连着看了。</span></div></div>
+          <button id="cut-big-play" class="big-play" type="button" aria-label="播放"><span>▶</span></button>
+          <div class="stage-top"><span id="cut-name" class="stage-name"></span><span id="cut-ref" class="stage-ref"></span><span id="cut-intent" class="stage-intent"></span></div>
+          <div class="stage-bottom">
+            <button id="cut-play" class="round" type="button">▶</button>
+            <span id="cut-time" class="time"></span><span class="grow"></span>
+            <button class="pill" data-fullscreen type="button">全屏</button>
+          </div>
+        </div>
+        <div id="cut-strip" class="strip"></div>
+        <div class="cut-foot">
+          <div class="cut-notes">
+            <div id="cut-note-box" class="note-box" hidden><span id="cut-note-tag" class="note-tag"></span><input id="cut-note-input" placeholder="对这个画面说一句…"><button id="cut-note-save" class="note-save" type="button">记下</button></div>
+            <div id="cut-note-list"></div>
+            <div id="cut-status" class="cut-status"></div>
+          </div>
+          <div class="cut-actions">
+            <button id="cut-note" class="btn-light" type="button">写一句</button>
+            <button id="cut-approve" class="btn-dark" type="button">这版可以</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="feed" class="feed">
+      <div id="feed-inner" class="feed-inner"></div>
+    </section>
+    <section id="project-view" class="project-view" hidden aria-label="项目页"></section>
+  </main>
+</div>
+
+<div id="light" class="light" hidden>
+  <div class="light-head">
+    <div class="light-title"><span id="l-name" class="l-name"></span><span id="l-ref" class="l-ref"></span><span id="l-intent" class="l-intent"></span></div>
+    <button id="l-close" class="circle" type="button">×</button>
+  </div>
+  <div class="light-body">
+    <button id="l-prev" class="circle big" type="button">‹</button>
+    <div class="light-stage">
+      <video id="l-video" playsinline preload="auto"></video>
+      <button id="l-big-play" class="big-play" type="button" aria-label="播放"><span>▶</span></button>
+      <div class="stage-bottom">
+        <button id="l-play" class="round" type="button">▶</button>
+        <div id="l-seek" class="seek"><div class="seek-track"><div id="l-fill" class="seek-fill"></div><div id="l-knob" class="seek-knob"></div></div></div>
+        <span id="l-time" class="time"></span>
+        <button class="pill" data-fullscreen type="button">全屏</button>
+      </div>
+    </div>
+    <button id="l-next" class="circle big" type="button">›</button>
+  </div>
+  <div class="light-foot">
+    <div id="l-takes" class="l-takes"></div>
+    <div class="l-right">
+      <div id="l-notes" class="l-notes"></div>
+      <div id="l-note-box" class="note-box wide" hidden><span id="l-note-tag" class="note-tag"></span><input id="l-note-input" placeholder="对这个画面说一句…"><button id="l-note-save" class="note-save" type="button">记下</button></div>
+      <div class="l-actions">
+        <button id="l-note" class="btn-light" type="button">写一句</button>
+        <button id="l-pick" class="btn-dark" type="button">用这条</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="settings" class="settings" hidden>
+  <div class="settings-card">
+    <div class="settings-head"><h2>个人设置</h2><button id="settings-close" class="icon-btn" type="button">×</button></div>
+    <div class="settings-sub">审片用的模型、Agent 连接由平台统一管理，这里只保留登录。</div>
+    <div class="settings-foot"><span id="settings-who">老板</span><button id="logout" class="btn-ghost" type="button">退出登录</button></div>
+  </div>
+</div>
+
+<div id="toast" class="toast" hidden><span id="toast-text"></span><button id="toast-action" type="button" hidden></button></div>
+<script src="/viewer/project.js"></script>
+<script src="/viewer/review.js"></script>
+</body>
+</html>

@@ -1,0 +1,206 @@
+{
+ "authority": "LOCAL owner-authorized two-film production. Native costs and private worker credentials; all required reviews and qualifications remain mandatory.",
+ "operations": {
+  "submit": {
+   "gpt_image_2_5": {
+    "mode": "live",
+    "budget_key": "hf_owner",
+    "budget_unit": "hf_credit",
+    "estimated_cost": 3,
+    "reservation": 3,
+    "max_attempts": 4,
+    "live_controls": {
+     "pricing_verified": true,
+     "isolation_verified": true,
+     "account_limits_verified": true
+    }
+   },
+   "nano_banana_pro": {
+    "mode": "live",
+    "budget_key": "hf_owner",
+    "budget_unit": "hf_credit",
+    "estimated_cost": 2,
+    "reservation": 2,
+    "max_attempts": 4,
+    "live_controls": {
+     "pricing_verified": true,
+     "isolation_verified": true,
+     "account_limits_verified": true
+    }
+   },
+   "seedance_2_5": {
+    "mode": "live",
+    "budget_key": "hf_owner",
+    "budget_unit": "hf_credit",
+    "estimated_cost": 105,
+    "reservation": 105,
+    "max_attempts": 4,
+    "live_controls": {
+     "pricing_verified": true,
+     "isolation_verified": true,
+     "account_limits_verified": true
+    }
+   },
+   "apilio_gpt_image_2_5": {
+    "mode": "live",
+    "budget_key": "apilio_owner_10466",
+    "budget_unit": "apilio_quota",
+    "estimated_cost": 20000,
+    "reservation": 60000,
+    "max_attempts": 1,
+    "live_controls": {
+     "pricing_verified": true,
+     "isolation_verified": true,
+     "account_limits_verified": true
+    }
+   },
+   "fal_seedance_2_5": {
+    "mode": "live",
+    "budget_key": "fal_owner",
+    "budget_unit": "usd_micro",
+    "estimated_cost": 2077410,
+    "reservation": 6232230,
+    "max_attempts": 4,
+    "live_controls": {
+     "pricing_verified": true,
+     "isolation_verified": true,
+     "account_limits_verified": true
+    }
+   }
+  },
+  "observe": {
+   "image": {
+    "mode": "fake",
+    "budget_unit": "synthetic_unit",
+    "estimated_cost": 1,
+    "reservation": 1,
+    "max_attempts": 4,
+    "live_controls": {
+     "pricing_verified": false,
+     "isolation_verified": false,
+     "account_limits_verified": false
+    }
+   },
+   "video": {
+    "mode": "live",
+    "budget_key": "apilio_owner_10466",
+    "budget_unit": "apilio_quota",
+    "estimated_cost": 39360,
+    "reservation": 500000,
+    "max_attempts": 4,
+    "live_controls": {
+     "pricing_verified": true,
+     "isolation_verified": true,
+     "account_limits_verified": true
+    }
+   },
+   "audio": {
+    "mode": "fake",
+    "budget_unit": "synthetic_unit",
+    "estimated_cost": 1,
+    "reservation": 1,
+    "max_attempts": 4,
+    "live_controls": {
+     "pricing_verified": false,
+     "isolation_verified": false,
+     "account_limits_verified": false
+    }
+   }
+  },
+  "review": {
+   "standards": {
+    "mode": "live",
+    "budget_key": "jev_owner",
+    "budget_unit": "usd_micro",
+    "estimated_cost": 200000,
+    "reservation": 200000,
+    "max_attempts": 4,
+    "live_controls": {
+     "pricing_verified": true,
+     "isolation_verified": true,
+     "account_limits_verified": true
+    }
+   },
+   "director": {
+    "mode": "live",
+    "budget_key": "apilio_owner_10466",
+    "budget_unit": "apilio_quota",
+    "estimated_cost": 200000000,
+    "reservation": 200000000,
+    "max_attempts": 4,
+    "live_controls": {
+     "pricing_verified": true,
+     "isolation_verified": true,
+     "account_limits_verified": true
+    }
+   },
+   "apilio-gemini-director-v1": {
+    "mode": "live",
+    "budget_key": "apilio_owner_10466",
+    "budget_unit": "apilio_quota",
+    "estimated_cost": 80000,
+    "reservation": 1000000,
+    "max_attempts": 4,
+    "live_controls": {
+     "pricing_verified": true,
+     "isolation_verified": true,
+     "account_limits_verified": true
+    }
+   }
+  },
+  "render-cut": {
+   "mode": "local",
+   "max_attempts": 4
+  },
+  "compose": {
+   "mode": "local",
+   "max_attempts": 4
+  },
+  "complete-draft": {
+   "fal_seedance_2_5_complete": {
+    "mode": "live",
+    "budget_key": "fal_owner",
+    "budget_unit": "usd_micro",
+    "estimated_cost": 11496560,
+    "reservation": 34489680,
+    "max_attempts": 1,
+    "live_controls": {
+     "pricing_verified": true,
+     "isolation_verified": true,
+     "account_limits_verified": true
+    }
+   }
+  }
+ },
+ "live_pricing": {
+  "observer": {
+   "unit": "apilio_quota",
+   "quota_per_lightning": 500000,
+   "input_quota_per_token": 0.375,
+   "output_quota_per_token": 1.875,
+   "group": "default",
+   "token_id": 10466,
+   "reservation_quota": 500000,
+   "initial_project_tranche_quota": 5000000,
+   "owner_total_ceiling": null
+  }
+ },
+ "notes": [
+  "Native HF quotes: GPT 2k/high/sunburst=3; NBP 2k=2; Seedance 720p omni-reference durations 5/8/9/15 cost 35/56/63/105 credits. Video reserves 15-second maximum, not estimated final bill.",
+  "DeepSeek reserve uses full advertised 1M input at peak cache-miss plus 8192 output (<0.32 USD), rounds upward to 0.40 USD per turn.",
+  "Astra reserve is deliberately much larger than anticipated use: 200M quota/turn. It covers charging an entire 32MiB bounded wire payload as input token units at 5 quota plus 8192 output at 25. This is a conservative operational allowance, not a measured tokenizer or actual bill. No unverified discount used; actual native ledger reconciles.",
+  "Owner HF total 10000: allocate 4999 per film, with 2 already spent on preserved accidental probe. Other owner totals have no ceiling; replenish finite account operating tranches explicitly.",
+  "Generation methods are activated only by this separate maintainer publication; maker cannot change policies.",
+  "submit.apilio_gpt_image_2_5: apilio quota = (input + output x completion_ratio 6) x model_ratio 2.5; the 2026-09-25 probe used about 17k per 2048x1152 image. One attempt: an unknown outcome goes to the operator.",
+  "submit.fal_seedance_2_5: 480p draft at 207741 micros per second (2026-09-25 probe); held at the 30 s maximum, settled at seconds x price.",
+  "complete-draft.fal_seedance_2_5_complete: 1080p completion of the owner's pick at 1149656 micros per second; at most once per draft."
+ ],
+ "owner_gates": {
+  "shot_plan": "required"
+ },
+ "owner_switches": {
+  "shot_plan_approval": false,
+  "ai_prompt_review": false,
+  "ai_director_review": false
+ }
+}

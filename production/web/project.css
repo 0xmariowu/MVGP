@@ -1,0 +1,181 @@
+/* Project view: the HF mirror page one to one (owner 2026-09-24:
+   "排版，设计，就和他一样吧"). Tokens and the shared.tree/.btn/.kv rules come from the mirror's site
+   base.css, scoped to.pj so they never reach the desk; the hf-/hfx- rules are the mirror's hf.css
+   (feature/hf-mirror 7610d5d2b) unchanged. Our own additions are marked "MVGP". */
+.pj{color-scheme:light;--bg:#f5f4f0;--bg-2:#eeede8;--card:#fff;--line:#e6e4de;--line-2:#d6d3cb;--hair:#f0efeb;--ink:#1a1a18;--ink-2:#55544f;--muted:#8b8a82;--accent:#c4321f;--accent-bg:#f8e6e1;--ok:#2f7a55;--ok-bg:#e4f1e9;--warn:#8a6420;--warn-bg:#f6efdf;--danger:#9c2a1a;--danger-bg:#f8e6e1;--scrim:linear-gradient(transparent,rgba(0,0,0,.72));--backdrop:rgba(26,26,24,.28);
+--font-ui:"IBM Plex Sans",-apple-system,"PingFang SC","Hiragino Sans GB","Noto Sans CJK SC",sans-serif;--font-mono:"IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
+--t1:600 36px/1.15 var(--font-ui);--t2:600 30px/1.15 var(--font-ui);--t3:600 18px/1.3 var(--font-ui);--t4:400 14.5px/1.65 var(--font-ui);--t5:500 13px/1.5 var(--font-ui);--t6:400 13px/1.5 var(--font-ui);--t7:500 12px/1.4 var(--font-mono);--t8:500 11px/1.5 var(--font-mono);
+--r-1:8px;--r-2:12px;--r-3:14px;--r-pill:999px;--shadow:0 1px 2px rgba(0,0,0,.06);--lift:0 1px 2px rgba(0,0,0,.08),0 8px 20px rgba(0,0,0,.08);--pop:0 1px 2px rgba(0,0,0,.08),0 16px 48px rgba(0,0,0,.16);
+--sp-1:4px;--sp-2:8px;--sp-3:12px;--sp-4:16px;--sp-5:20px;--sp-6:24px;--sp-7:32px;--sp-8:48px;--measure:68ch;--side-w:240px;--side-min:56px}
+.pj{color:var(--ink);font:var(--t4)}
+.pj *{box-sizing:border-box}
+.pj h1,.pj h2,.pj p{margin:0}
+.pj [hidden]{display:none !important}
+.pj .tree{display:grid;padding:4px 14px 14px}
+.pj .tree a{display:grid;grid-template-columns:minmax(0,320px) minmax(0,1fr);gap:var(--sp-4);align-items:center;padding:5px 8px 5px var(--pad,8px);border-radius:var(--r-1);color:var(--ink);text-decoration:none;opacity:.5}
+.pj .tree a[data-on]{opacity:1;background:var(--accent-bg)}.pj .tree a:hover{opacity:1;background:var(--bg-2);text-decoration:none}
+.pj .tree .nm{display:flex;align-items:center;gap:var(--sp-2);min-width:0}.pj .tree .g{color:var(--line-2);font:var(--t7);width:14px}.pj .tree .dir{width:14px;height:11px;border-radius:2px 3px 3px 3px;background:var(--line-2)}.pj .tree a[data-on] .dir{background:var(--accent)}
+.pj .tree .pill{padding:2px 8px;border-radius:var(--r-1);background:transparent;color:var(--muted);font:var(--t7);font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.pj .tree a[data-on] .pill{background:var(--card);color:var(--accent)}.pj .tree .pill.d{background:var(--bg-2);color:var(--ink-2)}.pj .tree a[data-on] .pill.d{background:var(--ink);color:var(--card)}
+.pj .tree .note{font:var(--t6);color:var(--ink-2);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.pj .tree a{border-radius:8px}.pj .tree .pill{font:600 12px/1.5 var(--font-mono)}.pj .tree .note{font:400 12.5px/1.5 var(--font-ui)}
+.pj .btn{display:inline-flex;align-items:center;justify-content:center;gap:var(--sp-2);height:32px;padding:0 var(--sp-4);border:1px solid var(--line);border-radius:var(--r-1);background:var(--card);color:var(--ink);font:var(--t5);font-weight:600;white-space:nowrap;text-decoration:none}
+.pj .btn:hover{border-color:var(--ink);text-decoration:none}
+.pj .btn--primary{background:var(--accent);border-color:var(--accent);color:var(--card)}.pj .btn--primary:hover{border-color:var(--accent)}
+.pj .btn{height:34px;padding:0 16px;border-radius:var(--r-pill);font:600 13px/1.5 var(--font-ui);border:1px solid var(--line)}
+.pj .kv{display:grid;grid-template-columns:100px minmax(0,1fr);gap:6px 10px;font:var(--t6)}.pj .kv dt{color:var(--muted);margin:0}.pj .kv dd{margin:0;color:var(--ink-2)}
+
+/* ---------- project: folder tree (left) + dark wall (right) ---------- */
+.hf-split{display:grid;grid-template-columns:260px minmax(0,1fr);gap:var(--sp-5);align-items:start;margin-top:var(--sp-5)}
+@media (max-width:820px){.hf-split{grid-template-columns:1fr}}
+.hf-folders{position:sticky;top:0;align-self:start;border:1px solid var(--line);border-radius:var(--r-2);background:var(--card);overflow:hidden;max-height:calc(100vh - 40px);overflow-y:auto}
+@media (max-width:820px){.hf-folders{position:static;max-height:none}}
+.hf-folders .hd{padding:var(--sp-3) 14px;font:var(--t7);color:var(--muted);border-bottom:1px solid var(--line-2)}
+.hf-tree a[data-pad="1"]{--pad:22px}.hf-tree a[data-pad="2"]{--pad:36px}.hf-tree a[data-pad="3"]{--pad:50px}
+/* The shared .tree gives the count its own shrinkable 1fr track (fine for a single
+   digit), but 全部素材's real project total is often 2+ digits and was clipping to
+   one character in a narrow sidebar. Give the name the flexible track instead — it
+   already ellipsizes — and size the count to its own content so it never shrinks. */
+#hf-tree a{grid-template-columns:minmax(0,1fr) auto}
+#hf-tree .pill{flex-shrink:0}
+
+.hf-wall{border-radius:var(--r-2);background:var(--ink);color:var(--card);padding:20px;min-height:200px}
+.hf-wall__head{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;margin-bottom:14px}
+.hf-wall__head h2{font:var(--t3)}
+.hf-wall__head .meta{color:rgba(255,253,248,.55);font:var(--t6)}
+/* A hand-rolled masonry: N equal-width flex columns (see hf.js setupColumns/
+   placeItems). Each tile keeps its own item aspect-ratio (set inline, from the
+   item's w/h) instead of being cropped to a square, like Higgsfield's own wall. */
+.hf-grid{display:flex;align-items:flex-start;gap:10px}
+.hf-col{flex:1 1 0;min-width:0;display:flex;flex-direction:column;gap:10px}
+.hf-tile{position:relative;display:block;width:100%;color:var(--card);text-decoration:none;border-radius:var(--r-1);overflow:hidden;background:var(--ink-2)}
+.hf-tile:hover{text-decoration:none;outline:2px solid rgba(255,253,248,.35);outline-offset:-2px}
+.hf-tile .fr{position:relative;display:block;width:100%;overflow:hidden;background:var(--ink-2)}
+.hf-tile img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+.hf-tile .badge{position:absolute;left:6px;bottom:6px;padding:1px 7px;border-radius:var(--r-pill);background:rgba(0,0,0,.6);color:#fff;font:var(--t8)}
+.hf-tile .play{position:absolute;right:6px;top:6px;width:20px;height:20px;border-radius:50%;background:rgba(0,0,0,.55);display:flex;align-items:center;justify-content:center}
+.hf-tile .play i{width:0;height:0;border-style:solid;border-width:5px 0 5px 8px;border-color:transparent transparent transparent #fff;margin-left:2px}
+.hf-tile .ext{position:absolute;right:6px;bottom:6px;padding:1px 6px;border-radius:var(--r-pill);background:rgba(0,0,0,.6);color:rgba(255,253,248,.85);font:var(--t8)}
+.hf-spacer{width:100%}
+.hf-sentinel{height:1px}
+.hf-empty-slot:empty{display:none}
+.hf-more{text-align:center;padding:14px;color:rgba(255,253,248,.5);font:var(--t6)}
+.hf-empty{text-align:center;padding:40px;color:rgba(255,253,248,.5);font:var(--t6)}
+/* One placeholder for every failed <img>/<video>, wherever it lives (shelf cover,
+   wall tile, reference chip, search result, uses list, overlay media) — never the
+   browser's own broken-image icon. Sized to fill whatever box the real media would
+   have (a wrapper's aspect-ratio box, or — kept via the shared class, e.g. "cov" on
+   the home shelf — the media element's own box). Its own colours are fixed, not
+   inherited from --ink-2/--bg-2, because it shows up in both light hosts (the home
+   shelf, search results) and dark ones (the wall, the overlay) — a token pulled from
+   the light palette would be unreadable, or read as a light patch, inside the dark
+   overlay this page otherwise commits to. */
+.hf-fail{display:flex;align-items:center;justify-content:center;width:100%;height:100%;box-sizing:border-box;padding:6px;text-align:center;font:var(--t8);font-weight:600;color:#fff;background:#6b6b66}
+
+/* ---------- item overlay (hfx) ---------- */
+/* A full-viewport surface — the backdrop is fully opaque (no page bleed-through,
+   unlike the old rgba(10,10,9,.86)), media fills the left area, the panel is a
+   fixed-width column down the right edge. */
+.hfx{position:fixed;inset:0;z-index:60}
+.hfx[hidden]{display:none}
+.hfx__backdrop{position:absolute;inset:0;background:#0a0a09}
+.hfx__box{position:absolute;inset:0;display:grid;grid-template-columns:minmax(0,1fr) 360px}
+@media (max-width:900px){.hfx__box{grid-template-columns:minmax(0,1fr);grid-template-rows:minmax(0,1fr) auto}}
+.hfx__media{position:relative;display:flex;align-items:center;justify-content:center;min-width:0;min-height:0;padding:0;background:#000}
+.hfx__media img,.hfx__media video{width:100%;height:100%;object-fit:contain;background:#000}
+.hfx__expand{position:absolute;right:16px;bottom:16px;z-index:2;width:34px;height:34px;border:0;border-radius:50%;background:rgba(255,253,248,.16);color:var(--card);font:var(--t4);cursor:pointer}
+.hfx__expand:hover{background:rgba(255,253,248,.28)}
+.hfx__speed{position:absolute;left:16px;bottom:16px;z-index:2;height:28px;padding:0 8px;border:0;border-radius:var(--r-pill);background:rgba(255,253,248,.16);color:var(--card);font:var(--t8);font-weight:600}
+.hfx__side{background:var(--ink);color:var(--card);overflow-y:auto;padding:20px;display:grid;gap:16px;align-content:start}
+@media (max-width:900px){.hfx__side{max-height:44vh;border-top:1px solid rgba(255,253,248,.14)}}
+.hfx__close{position:absolute;top:14px;right:14px;z-index:2;width:34px;height:34px;border:0;border-radius:50%;background:rgba(255,253,248,.14);color:var(--card);font:var(--t5)}
+.hfx__nav{position:absolute;top:50%;transform:translateY(-50%);z-index:2;width:44px;height:44px;border:0;border-radius:50%;background:rgba(255,253,248,.14);color:var(--card);font:var(--t2)}
+/* the box spans the 360px side panel too, so the next arrow is offset past it onto the picture */
+.hfx__nav--prev{left:16px}.hfx__nav--next{right:calc(360px + 16px)}
+/* narrow: the panel takes up to 44vh at the bottom, so centre the arrows on the picture above it —
+   a bottom offset put them on the picture's own corner buttons (expand, speed) */
+@media (max-width:900px){.hfx__nav{top:calc(28vh - 22px);transform:none}.hfx__nav--prev{left:12px}.hfx__nav--next{right:12px}}
+.hfx__loading{color:rgba(255,253,248,.6);font:var(--t6)}
+/* author: a round initial avatar, the name, and 「作者」 as a caption under it — the
+   id is a separate small selectable line below, never the panel's own heading. */
+.hfx__author{display:flex;align-items:center;gap:10px}
+.hfx__avatar{flex:none;width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#0a0a09;font:var(--t4);font-weight:700}
+.hfx__who{display:grid;gap:2px;min-width:0}
+.hfx__who .name{font:var(--t4);font-weight:600;word-break:break-word}
+.hfx__who .cap{font:var(--t8);color:rgba(255,253,248,.45)}
+.hfx__idline{margin-top:-10px;font:var(--t8);color:rgba(255,253,248,.4);user-select:all;word-break:break-all}
+.hfx .kv{grid-template-columns:88px minmax(0,1fr)}
+.hfx .kv dt{color:rgba(255,253,248,.5)}.hfx .kv dd{color:rgba(255,253,248,.85)}
+.hfx__prompt{position:relative;background:rgba(255,253,248,.06);border-radius:var(--r-1);padding:12px 14px}
+.hfx__prompt pre{margin:0;white-space:pre-wrap;word-break:break-word;font:var(--t6);font-family:var(--font-ui);color:rgba(255,253,248,.92)}
+.hfx__prompt pre.clamp{display:-webkit-box;-webkit-line-clamp:12;-webkit-box-orient:vertical;overflow:hidden}
+.hfx__prompt pre.clamp.expanded{display:block;-webkit-line-clamp:unset;overflow:visible}
+.hfx__tag{color:var(--accent);font-weight:600}
+.hfx__add{background:rgba(250,204,21,.22);color:inherit;border-radius:3px;padding:0 1px}
+.hfx__proof{margin-top:8px;font:var(--t7);color:rgba(255,253,248,.72)}
+.hfx__proof--bad{color:#f87171;font-weight:600}
+.hfx__more{margin-top:8px;padding:0;border:0;background:none;color:var(--accent);font:var(--t7);font-weight:600;cursor:pointer;text-decoration:underline;text-underline-offset:2px}
+/* copy sits at the right end of the PROMPT heading row, like DETAILS' chevron — outside the box,
+   so it never covers the chips or the text and costs the box no line of its own */
+.hfx__phead{display:flex;align-items:center;justify-content:space-between}
+.hfx__copy{padding:3px 10px;border:0;border-radius:var(--r-pill);background:rgba(255,253,248,.16);color:var(--card);font:var(--t8)}
+.hfx__copy[data-done]{background:var(--ok);color:#fff}
+/* Reference chips sit inside the PROMPT box, at its top, as a row of small squares —
+   not a separate section further down the panel. */
+.hfx__refs{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:10px}
+.hfx__ref{display:grid;gap:4px;width:56px;color:var(--card);text-decoration:none;cursor:pointer;border:0;background:none;padding:0;text-align:left}
+.hfx__ref .fr{display:block;width:100%;aspect-ratio:1/1;border-radius:var(--r-1);overflow:hidden;border:1px solid rgba(255,253,248,.16);background:rgba(255,253,248,.08)}
+.hfx__ref img{width:100%;height:100%;object-fit:cover;display:block}
+.hfx__ref .lb{font:var(--t8);color:rgba(255,253,248,.6);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.hfx__ref .lb b{color:var(--accent);font-weight:600}
+.hfx__uses{display:grid;gap:8px;margin-top:8px}
+.hfx__uses .hd{font:var(--t7);color:rgba(255,253,248,.6)}
+.hfx__links{display:flex;gap:10px;flex-wrap:wrap}
+.hfx__links a{font:var(--t6);color:var(--card);text-decoration:underline;text-underline-offset:2px}
+.hfx__section{display:grid;gap:8px}
+.hfx__section .h{font:var(--t7);color:rgba(255,253,248,.5);letter-spacing:.04em;text-transform:uppercase}
+/* DETAILS collapses behind the same chevron affordance the tree uses, open by default. */
+.hfx__details{gap:10px}
+.hfx__dtoggle{display:flex;align-items:center;justify-content:space-between;padding:0;border:0;background:none;color:inherit;cursor:pointer;text-align:left}
+.hfx__dtoggle .chev{color:rgba(255,253,248,.5);font:var(--t6)}
+.hfx__details dl[hidden]{display:none}
+/* the bottom of the panel is a button row: 下载 primary, 原始记录 secondary. */
+.hfx__actions{display:grid;gap:8px}
+.hfx__actions-btn{width:100%}
+
+/* MVGP: page head as the mirror's .page-head, a pick tick on a take, the project notes (our brief). */
+.pj .hf-head{display:flex;align-items:flex-end;gap:var(--sp-3);margin-bottom:var(--sp-2)}
+.pj .hf-head h1{font:var(--t2)}
+.pj .hf-head .lede{color:var(--ink-2);font:var(--t6);margin-top:6px}
+.pj .hf-tile .tick{position:absolute;left:6px;top:6px;width:20px;height:20px;border-radius:50%;background:var(--ok);color:#fff;font:var(--t8);display:flex;align-items:center;justify-content:center}
+.pj .hf-notes{display:grid;gap:8px;margin-bottom:14px}
+.pj .hf-notes details{border-radius:var(--r-1);background:rgba(255,253,248,.06);padding:8px 12px}
+.pj .hf-notes summary{cursor:pointer;font:var(--t6);color:rgba(255,253,248,.85)}
+.pj .hf-notes pre{margin:8px 0 0;white-space:pre-wrap;font:var(--t7);color:rgba(255,253,248,.8);max-height:50vh;overflow:auto}
+.pj .hf-goal{margin-bottom:14px;padding:10px 12px;border-radius:var(--r-1);background:rgba(255,253,248,.08);font:var(--t6);color:rgba(255,253,248,.9)}
+/* Standalone page chrome (/p/<project>). */
+.pj-page{margin:0;background:#f5f4f0}
+.pj-page-bar{padding:14px 24px;font:500 13px/1.5 -apple-system,"PingFang SC",sans-serif}
+.pj-page-bar a{color:#8b8a82;text-decoration:none}
+.pj-page-body{padding:0 24px 24px}
+
+/* HF project records on the project page (brief, stage, shotlist, version log, advice). */
+.pj .hf-brief{display:grid;gap:6px;margin:0 0 14px;padding:12px 14px;border-radius:12px;background:rgba(255,255,255,.04);font-size:13px}
+.pj .hf-stage{display:flex;gap:6px;margin-bottom:4px}
+.pj .hf-stage span{padding:2px 10px;border-radius:999px;border:1px solid rgba(255,255,255,.18);opacity:.55}
+.pj .hf-stage span.on{opacity:1;background:#fafafa;color:#09090b;border-color:#fafafa}
+.pj .hf-brief .row,.pj .hf-log .row{display:flex;gap:10px;align-items:baseline}
+.pj .hf-brief .k,.pj .hf-log .k{flex:none;min-width:5em;opacity:.6}
+.pj .hf-shotlist{width:100%;border-collapse:collapse;margin:0 0 14px;font-size:13px}
+.pj .hf-shotlist th,.pj .hf-shotlist td{padding:6px 8px;border-bottom:1px solid rgba(255,255,255,.08);text-align:left;vertical-align:top}
+.pj .hf-shotlist th{opacity:.6;font-weight:500}
+.pj .hf-log{display:grid;gap:4px;margin:8px 0 12px;font-size:13px}
+.pj .hf-review{margin:8px 0 12px;display:grid;gap:6px;font-size:13px}
+.pj .hf-review .chips{display:flex;gap:6px;flex-wrap:wrap}
+.pj .hf-review .chip.warn{padding:2px 8px;border-radius:999px;background:rgba(248,113,113,.16);color:#f87171;font-weight:600}
+.pj .hf-review .row{display:flex;gap:10px;align-items:baseline;flex-wrap:wrap}
+.pj .hf-review .row .k{flex:none;opacity:.6}
+.pj .hf-review .row .n{opacity:.72}
+.pj .hf-review .quote{opacity:.85}
+.pj .hf-log .n{flex:none;opacity:.6}
+.pj .hf-log .verdict{margin-left:auto;opacity:.85}
+.pj .hf-advice{margin:0 0 12px;padding:8px 12px;border-radius:10px;background:rgba(234,179,8,.14);font-size:13px}

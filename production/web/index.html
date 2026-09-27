@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <title>MVGP · 拍片工作台</title>
+  <link rel="stylesheet" href="/viewer/style.css">
+  <script src="/viewer/app.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">跳到内容</a>
+  <header class="site-head">
+    <a class="brand" href="/projects"><strong>MVGP</strong><span>拍片工作台</span></a>
+    <div class="session"><span id="session-label"></span><button id="logout" type="button" hidden>退出</button></div>
+  </header>
+  <main id="main">
+    <p id="notice" class="notice" role="status" aria-live="polite" hidden></p>
+    <section id="login" class="login" aria-labelledby="login-title" hidden>
+      <p class="eyebrow">MVGP</p><h1 id="login-title">进入工作台</h1>
+      <p>用你的账号进入。选片和确认只能由你本人完成。</p>
+      <button id="employee-login" type="button" class="primary">进入</button>
+      <details class="legacy-login"><summary>管理员提供的访问凭证</summary>
+      <form id="login-form">
+        <label for="session-kind">访问方式</label>
+        <select id="session-kind"><option value="viewer">查看项目</option></select>
+        <label for="session-secret">访问凭证</label>
+        <input id="session-secret" type="password" autocomplete="off" required maxlength="256">
+        <button type="submit" class="primary">进入</button>
+      </form>
+      </details>
+    </section>
+    <section id="projects-view" aria-labelledby="projects-title" hidden>
+      <div class="page-head"><div><p class="eyebrow">项目</p><h1 id="projects-title">你的影片</h1>
+        <p class="lede">在这里看片，带着具体画面回到 Agent 讨论。</p></div>
+        <div class="filters" aria-label="项目筛选"><button type="button" data-filter="all" aria-pressed="true">全部</button><button type="button" data-filter="active" aria-pressed="false">进行中</button><button type="button" data-filter="complete" aria-pressed="false">已确认</button></div></div>
+      <div id="project-list" class="project-list"></div>
+      <p id="projects-empty" class="empty" hidden>还没有可查看的项目。在 coding 环境里告诉 Agent，你想拍什么。</p>
+      <details id="project-history" hidden><summary id="project-history-title">历史制作记录</summary>
+        <p class="meta">保留早先制作中的素材、意见和确认。展开后可继续查看。</p>
+        <div id="project-history-list" class="project-list"></div>
+        <p id="project-history-empty" class="empty" hidden>这个筛选下没有历史记录。</p>
+      </details>
+    </section>
+    <section id="project-view" aria-labelledby="project-title" hidden>
+      <a href="/projects" class="back">← 所有项目</a>
+      <div class="page-head"><div><p id="project-branch" class="eyebrow"></p><h1 id="project-title"></h1></div><button id="refresh" type="button">刷新进展</button></div>
+      <div class="progress"><ol id="phase-strip" aria-label="项目阶段"></ol><p id="project-state"></p><p id="budget" class="meta" hidden></p></div>
+      <div id="blockers" class="notice warn" hidden></div>
+      <nav class="tabs" aria-label="项目内容"><button type="button" data-tab="plan" aria-pressed="false">计划</button><button type="button" data-tab="results" aria-pressed="true">结果</button><button type="button" data-tab="files" aria-pressed="false">文件</button></nav>
+      <section id="plan-panel" class="content-panel" aria-label="准备拍什么" hidden><div id="plan-list" class="artifact-list"></div><p id="plan-empty" class="empty" hidden>还没有剧本或分镜。准备好的内容会出现在这里。</p></section>
+      <section id="results-panel" class="content-panel" aria-label="拍出来的内容"><div id="result-list" class="artifact-list"></div><p id="results-empty" class="empty" hidden>还没有生成结果。已有任务的状态会在这里更新。</p></section>
+      <section id="files-panel" class="content-panel" aria-label="项目文件" hidden><div id="file-tree" class="file-tree"></div><p id="files-empty" class="empty" hidden>项目文件会按目录显示在这里。</p></section>
+      <section id="artifact-view" class="artifact-view" aria-labelledby="artifact-title" hidden>
+        <div class="artifact-head"><div><p id="artifact-status" class="eyebrow"></p><h2 id="artifact-title"></h2></div><label class="version-control">版本 <select id="versions" aria-label="历史版本"></select></label></div>
+        <div id="media-stage" class="media-stage" hidden>
+          <video id="video" controls preload="metadata" playsinline hidden></video>
+          <audio id="audio" controls preload="metadata" hidden></audio>
+          <img id="image" alt="所选参考图或画面" hidden>
+        </div>
+        <p id="media-error" class="notice warn" role="alert" hidden>这份素材暂时无法播放。请复制引用，让 Agent 检查文件和访问权限。</p>
+        <div class="artifact-actions"><button id="copy-reference" type="button">复制讨论引用</button><a id="download" class="button" hidden download>下载素材</a><span id="playback-time" class="meta"></span></div>
+        <div id="copy-fallback" hidden><label for="copy-text">复制以下内容，粘贴给 Agent，再写下你的想法。</label><textarea id="copy-text" readonly rows="6"></textarea></div>
+        <div id="artifact-content" class="prose"></div>
+        <details id="artifact-details"><summary>查看完整内容与记录</summary><pre id="artifact-json"></pre></details>
+      </section>
+      <section id="decision-view" class="decision" aria-labelledby="decision-title" hidden>
+        <h2 id="decision-title">确认这一个版本</h2><p id="decision-description"></p><pre id="decision-evidence"></pre>
+        <div id="decision-takes" hidden></div>
+        <p id="decision-limit" class="meta"></p><div id="decision-actions" hidden><button id="confirm-decision" type="button" class="primary">确认</button><button id="decline-decision" type="button">不确认</button></div>
+      </section>
+    </section>
+    <noscript>此工作台需要 JavaScript 来读取项目和播放记录。</noscript>
+  </main>
+  <footer>修改和创作在 coding 环境中进行。这里保留每一次结果，方便具体讨论。</footer>
+</body>
+</html>

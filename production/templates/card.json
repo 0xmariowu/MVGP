@@ -1,0 +1,103 @@
+{
+  "_about": "镜头卡（镜头级）。模版只存这一份（计划冻结决定 17）；pipe.py new-shot 把它复制到 剧/EPxx/ACTn/S02-LOCATION/S02-050B/card.json。四组照 Cully 原文（cully:36-39），键名就是他们的原话；表演任务块照 ONEIRIC（oneiric:97 / tig-acting-task）。",
+  "shot": "S02-050B",
+  "The material": {
+    "the location and INT/EXT with the asset that covers it": "",
+    "the time of day": "",
+    "everyone in frame with their tags and state variants": [],
+    "props and vehicles with tags": [],
+    "the action in one to three sentences": "",
+    "the lines verbatim": "",
+    "speakers": [],
+    "the running time in seconds": 0,
+    "the complexity — simple, medium or complex": ""
+  },
+  "Direction": {
+    "the goal of the shot in one line": "",
+    "The task — what the character does to get what he wants, as a verb": "",
+    "The dramaturgy — what changed between the start and the end": "",
+    "The blocking relative to the camera": "",
+    "The acting — what the face and the body do, and what the character hides": "",
+    "subject continuity": [],
+    "timing mode": "",
+    "end state": "",
+    "physical constraints": "",
+    "lighting": "",
+    "quality": "",
+    "expected visible performance": "",
+    "principal tags": []
+  },
+  "Camera": {
+    "shot size": "",
+    "movement": "",
+    "lens": "",
+    "angle": "",
+    "opens the scene with a one-second master wide": ""
+  },
+  "Edit": {
+    "cut type": "",
+    "pace": "",
+    "how this shot hooks into the next one": ""
+  },
+  "ACTING TASK": {
+    "_about": "每个在画面里的人一块；写成对着对手做的动词，眼睛的活是动作。短式照 oneiric:97。",
+    "[NAME]": {
+      "SCENE DIRECTION (shared, unspoken)": "",
+      "MOTIVE / GOAL / OBSTACLE": "",
+      "TACTIC, moment to moment": [
+        "\"[dialogue words]\" — [verb at the partner + what the eyes check]"
+      ],
+      "Safety": "gaze always engaged in the task; natural blink cadence."
+    }
+  },
+  "_sources": {
+    "The material": "cully:37",
+    "the location and INT/EXT with the asset that covers it": "cully:37",
+    "the time of day": "cully:37",
+    "everyone in frame with their tags and state variants": "cully:37",
+    "props and vehicles with tags": "cully:37",
+    "the action in one to three sentences": "cully:37",
+    "the lines verbatim": "cully:37",
+    "the running time in seconds": "cully:37",
+    "the complexity — simple, medium or complex": "cully:37",
+    "Direction": "cully:38",
+    "the goal of the shot in one line": "cully:38",
+    "The task — what the character does to get what he wants, as a verb": "cully:38",
+    "The dramaturgy — what changed between the start and the end": "cully:38",
+    "The blocking relative to the camera": "cully:38",
+    "The acting — what the face and the body do, and what the character hides": "cully:38",
+    "Camera": "cully:39",
+    "shot size": "cully:39",
+    "movement": "cully:39",
+    "lens": "cully:39",
+    "angle": "cully:39",
+    "Edit": "cully:39",
+    "cut type": "cully:39",
+    "pace": "cully:39",
+    "how this shot hooks into the next one": "cully:39",
+    "ACTING TASK": "oneiric:97",
+    "SCENE DIRECTION (shared, unspoken)": "oneiric:97",
+    "MOTIVE / GOAL / OBSTACLE": "oneiric:97",
+    "TACTIC, moment to moment": "oneiric:97",
+    "Safety": "oneiric:97",
+    "shot": "cully:37",
+    "speakers": "hell-grind:101（台词只活在音频段）· 本库：由 the lines verbatim 自动解析出说话者，此键非空时覆盖",
+    "subject continuity": "LOCAL schema: list of tag/start/body orientation/gaze target/path/end/trigger; cinedance:355-427 and hell-grind:82 support separate per-shot geometry, not these field names. Only supplied values are emitted.",
+    "timing mode": "LOCAL selection: timed/stages/ordinal; cinedance:974-1000; if-you-stop:110-113 is model/task-specific.",
+    "end state": "LOCAL current-shot endpoint; does not substitute Edit hook or perform the next shot.",
+    "physical constraints": "LOCAL selected constraints only; cinedance:850-928.",
+    "lighting": "LOCAL current-shot override or scene lighting; cinedance:930-974.",
+    "quality": "LOCAL optional useful instruction; cinedance:1262-1270.",
+    "expected visible performance": "LOCAL review expectation grounded in screenplay/director intent for original work or verified source understanding for recreation; not sent as an action or accepted by schema checks.",
+    "Audio": "LOCAL optional schema delivered through build_prompt and the shared role gate: ambience strings; delivery speaker/line/instruction (line index for duplicate text); pronunciation map; prior context only; selected silence handles; nonverbal tag/action. hell-grind:101-102, cinedance:1027-1043. Exact registry voice identity; original script order; no automatic silence handles. Schema validity does not certify audible performance.",
+    "principal tags": "LOCAL role selection: present principal tags require a profile and acting check; empty uses valid ACTING TASK subjects plus speakers for performance, and speakers only for profile. Incidental background is not automatically principal. HF-silent in the reviewed adoption ledger; acting-system:236-279."
+  },
+  "Audio": {
+    "ambience": [],
+    "delivery": [],
+    "pronunciation": {},
+    "prior context": "",
+    "silence handles": "",
+    "nonverbal": []
+  }
+}

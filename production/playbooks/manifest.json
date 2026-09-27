@@ -1,0 +1,28 @@
+{
+  "files": [
+    {
+      "name": "writer.md",
+      "source": "repo:production/playbooks/writer.md",
+      "purpose": "How the agent writes the whole prompt, what the platform may add, and the reviewer step (MVGP writer v2).",
+      "sha256": "3129ffdc76934fceb4e5766c6d1e6a89d5447a51b7fcf64ada925eb1a0579bff"
+    },
+    {
+      "name": "cinedance-v4-seedance.md",
+      "source": "Higgsfield official skill (public)",
+      "purpose": "HF CINEDANCE: the Seedance video prompt skill and its silent audit.",
+      "sha256": "7b0e4f8dad1515631f54b6b6401b333adbdbbe3b8832a71c6ac78fe5d20b95f8"
+    },
+    {
+      "name": "acting-system.md",
+      "source": "Higgsfield official skill (public)",
+      "purpose": "HF acting system: CHARACTER ACTING blocks.",
+      "sha256": "8841c5d1155ee9347d5fc302a2f0fdac76fed21070c94bf01741821ea1c42365"
+    },
+    {
+      "name": "lira-image-prompts.md",
+      "source": "Higgsfield official skill (public)",
+      "purpose": "HF LIRA: image prompts for assets and first frames.",
+      "sha256": "f480d1ad5b61f7b33df3bc49e1b652e50a9a75acef280c8893facd6cb40eee83"
+    }
+  ]
+}

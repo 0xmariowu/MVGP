@@ -1,0 +1,12 @@
+# Local-only working notes (never published)
+.claude/
+experience/
+
+# Python
+__pycache__/
+*.pyc
+.venv*/
+
+# OS / editors
+.DS_Store
+*.swp
