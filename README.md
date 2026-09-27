@@ -1,7 +1,6 @@
 # MVGP
 
-MVGP 是一个给 AI 智能体用的拍片平台。你只管跟智能体聊想拍什么，剩下的写剧本、拆镜头、下单生成、记账，
-都由智能体按规范在平台上完成。片子出来后，你上工作台看片、选片，就结束了。
+MVGP 是一个给 AI 智能体用的拍片平台。你只管跟智能体聊想拍什么，剩下的写剧本、拆镜头、下单生成、记账，都由智能体按规范在平台上完成。片子出来后，你上工作台看片、选片，就结束了。
 
 MVGP is an agent-first film production platform. You tell an AI agent what you want to film; the agent does the
 rest on the platform by the book: script, shot breakdown, generation orders and accounting. When the takes are
