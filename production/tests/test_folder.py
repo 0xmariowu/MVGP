@@ -72,6 +72,22 @@ class FolderTests(unittest.TestCase):
         self.assertNotIn('source', units['shot:02:020A'].content)
         self.assertEqual(units['shot:02:020A'].digest, before['shot:02:020A'])
 
+    def test_a_shot_may_pick_its_resolution_before_the_prompt(self):
+        # Owner 2026-09-29: a Higgsfield film at 720p. `resolution:` goes on the card's _production; a shot without the
+        # line keeps its old digest and leaves the route's default.
+        from production.folder_cli import _records
+        before = {u.key: u.digest for u in read(self.root)}
+        text = (self.root / 'SCENE 02 - ROAD/shotlist.md').read_text()
+        self.write('SCENE 02 - ROAD/shotlist.md', text.replace('look: city\n', 'look: city\nresolution: 720p\n'))
+        units = read(self.root)
+        by_key = {u.key: u for u in units}
+        self.assertEqual((by_key['shot:02:010A'].content['resolution'], by_key['shot:02:010A'].content['prompt']), ('720p', PROMPT))
+        self.assertNotIn('resolution', by_key['shot:02:020A'].content)
+        self.assertEqual(by_key['shot:02:020A'].digest, before['shot:02:020A'])
+        cards = {r['key']: r['content']['_production'] for r in _records(units, {'units': {}}, None) if r['kind'] == 'shot'}
+        self.assertEqual(cards['shot:02:010A'], {'prompt': PROMPT, 'look': 'look_city', 'resolution': '720p'})
+        self.assertEqual(cards['shot:02:020A'], {'prompt': PROMPT})
+
     def test_the_writers_own_headings_stay_in_the_prompt(self):
         # Re-audit 2026-09-27: HF prompts carry `## ` headings in 3 of the first 11 projects ("## SHOT 1 — …").
         prompt = '## SHOT 1 — establishing wide\n@bluecart rolls east.\n\n## NEGATIVE PROMPT\nno text on screen'

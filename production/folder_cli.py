@@ -172,6 +172,8 @@ def _records(units: list[folders.Unit], state: dict[str, Any], manuals: str | No
             production: dict[str, Any] = {'prompt': c['prompt']}
             if c['look']:
                 production['look'] = f"look_{c['look']}"
+            if c.get('resolution'):
+                production['resolution'] = c['resolution']
             records.append({'key': unit.key, 'kind': 'shot', 'path': f"{Path(unit.path).parent.as_posix()}/{c['number']}.json",
                             'digest': unit.digest, 'scene': f"scene:{c['scene']}", 'source': c.get('source'),
                             'content': {'shot': c['label'], 'The material': {'the running time in seconds': c['seconds'],

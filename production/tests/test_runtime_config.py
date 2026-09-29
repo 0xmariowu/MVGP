@@ -48,9 +48,9 @@ class RuntimeConfigTests(unittest.TestCase):
         self.assertEqual(reader['profiles'][reader['role_routes']['observer']]['role'], 'observer')
         self.assertEqual(set(json.loads(self.config.document('methods'))['methods']),
                          {'mvgp-image-edit-v1', 'mvgp-image-generate-v1', 'mvgp-video-v1', 'mvgp-video-hf-v1'})
-        # the Higgsfield method is 1080p Seedance 2.5 with 30 references.
+        # the Higgsfield method is Seedance 2.5 with 30 references, 1080p by default and 720p on request (owner 2026-09-29).
         hf = video['profiles'][video['method_routes']['mvgp-video-hf-v1']]
-        self.assertEqual((hf['job_type'], hf['resolutions'], hf['max_references']), ('seedance_2_5', ['1080p'], 30))
+        self.assertEqual((hf['job_type'], hf['resolutions'], hf['max_references']), ('seedance_2_5', ['1080p', '720p'], 30))
         self.assertEqual(json.loads(self.config.document(hf['capability_role']))['job_type'], 'seedance_2_5')
         self.assertEqual(json.loads(self.config.document('cut_policy'))['policy_id'], 'local-cut-assembly-v1')
         with self.assertRaises(DomainError) as absent:
