@@ -31,6 +31,9 @@ LOOK_LINE = re.compile(r'^look:\s*([A-Za-z0-9][A-Za-z0-9_-]{0,63})\s*$')
 # `## ` line is the writer's own heading and stays in the prompt (3 of the first 11 HF projects write them; re-audit 2026-09-27).
 HEADER_ATTEMPT = re.compile(r'^## (?:.*·|\S{1,16}\s+\d{1,2}\s*s\b)')
 SOURCE_LINE = re.compile(r'^source:\s*([A-Za-z0-9][A-Za-z0-9_-]{0,127})\s*$')
+# `resolution: 720p` picks one of the route's released resolutions for this shot (owner 2026-09-29: a Higgsfield film
+# at 720p); left out, the route's default is used. The compiler refuses a resolution the route does not release.
+RESOLUTION_LINE = re.compile(r'^resolution:\s*(\d{3,4}p)\s*$')
 PROJECT_LINE = re.compile(r'^project:\s*(project_[A-Za-z0-9_-]+)\s*$')
 
 
@@ -122,15 +125,17 @@ def _shotlist(text: str, path: str, scene: str, problems: list[str]) -> tuple[st
     def close() -> None:
         if header is None:
             return
-        lines, look, source = list(body), None, None
+        lines, look, source, resolution = list(body), None, None, None
         while lines and not lines[0].strip():
             lines = lines[1:]
-        # `look:` and `source:` (a recreation shot's source-understanding record), in either order, before the prompt.
+        # `look:`, `source:` (a recreation shot's source-understanding record) and `resolution:`, in any order, before the prompt.
         while lines:
             if named := LOOK_LINE.match(lines[0]):
                 look = named[1]
             elif cited := SOURCE_LINE.match(lines[0]):
                 source = cited[1]
+            elif chosen := RESOLUTION_LINE.match(lines[0]):
+                resolution = chosen[1]
             else:
                 break
             lines = lines[1:]
@@ -142,7 +147,8 @@ def _shotlist(text: str, path: str, scene: str, problems: list[str]) -> tuple[st
             problems.append(f'{path}: shot {number} runs {seconds} s; fal takes 4–30 whole seconds')
         shots.append(_unit(f'shot:{scene}:{number}', 'shot', path, {
             'scene': scene, 'number': number, 'label': f'S{scene}-{number}', 'seconds': seconds, 'goal': goal,
-            'look': look, 'prompt': prompt, **({'source': source} if source else {})}))
+            'look': look, 'prompt': prompt, **({'source': source} if source else {}),
+            **({'resolution': resolution} if resolution else {})}))
     for n, line in enumerate(text.split('\n'), 1):
         if SHOT_HEADER.match(line) or HEADER_ATTEMPT.match(line):
             close()

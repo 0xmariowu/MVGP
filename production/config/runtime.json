@@ -815,7 +815,8 @@
       "9:16"
      ],
      "resolutions": [
-      "1080p"
+      "1080p",
+      "720p"
      ],
      "max_references": 30,
      "capability_role": "hf_video_capability",

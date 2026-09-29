@@ -80,6 +80,11 @@ A recreation shot adds `source: <id>` (before or after `look:`): the `source-und
 shot it recreates, written after the reader watched the source (`observe`); `push` lists it in the card's
 dependencies, which the platform needs while 复刻先让 Gemini 看原片 is on.
 
+A shot may add `resolution: 720p` (with `look:` and `source:`, in any order): one of the route's released resolutions
+for this card. Left out, the route's first one is used (Higgsfield 1080p; 样片模式 fal 480p). The Higgsfield route
+releases 1080p and 720p (owner 2026-09-29: a film shot at 720p, 7 credits a second); a resolution the film's route
+does not release is refused at prepare, before anything is spent.
+
 The number is free text without spaces, up to 16 characters of letters, digits, `.`, `_` and `-` (HF numbers shots `1.10`, `73.2B`, §1a); the scene's number and the shot's make the
 label `S01-010A`. Seconds are whole (Higgsfield and fal take 4–30). The goal is one line in plain Chinese; it is what the owner
 reads on the desk ("the goal of the shot in one line", cully:38). The prompt goes out verbatim plus only the

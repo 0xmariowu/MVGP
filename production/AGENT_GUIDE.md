@@ -91,7 +91,8 @@ shoot order. State lives in `<dir>/.mvgp/state.json`; do not edit it.
    (a 4 s take 48 credits; `higgsfield generate cost`, 2026-09-27), with up to 30 reference images; photoreal people
    are fine there. A film whose owner turned on 样片模式 (个人设置) goes to fal instead: each take a 480p draft, the same
    frames and seed as its 1080p version, about a fifth of the price (a 4 s draft US$0.83, its completion US$4.60;
-   2026-09-25 probe); fal refuses photoreal faces in references. Both take 4–30 whole seconds.
+   2026-09-25 probe); fal refuses photoreal faces in references. Both take 4–30 whole seconds. A shot with the line
+   `resolution: 720p` (production/FOLDER.md) shoots Higgsfield at 720p, 7 credits a second (owner 2026-09-29).
 9. **Read what the owner said.** `mvgp pull <dir>` writes `log.md`: per shot, each version, what changed, the takes,
    the verdict and his reason, the reviewer's notes, and his notes by take and second. The picks land in `TAKES/`.
 

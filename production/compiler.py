@@ -84,13 +84,14 @@ FAL_VIDEO_ENDPOINTS = {'fal_seedance_2_5': 'bytedance/seedance-2.5/reference-to-
 
 
 def route_defaults(config: Any, method_id: str) -> dict[str, Any]:
-    """The model and (when it has only one) the resolution of a video method's route: what a card may leave out.
+    """The model and the default resolution of a video method's route: what a card may leave out. The default is the
+    route's first listed resolution (owner 2026-09-29: the Higgsfield route releases 1080p first, then 720p).
     The quote prices with the same values the compiler sends."""
     try:
         routes = config.section('video_routes')
         profile = routes['profiles'][routes['method_routes'][method_id]]
         found: dict[str, Any] = {'model': profile['job_type']}
-        if len(profile['resolutions']) == 1:
+        if profile['resolutions']:
             found['resolution'] = profile['resolutions'][0]
         return found
     except (KeyError, TypeError, DomainError):
@@ -195,7 +196,7 @@ class Compiler:
         return text(before) != text(shot)
 
     def _defaults(self, actor: Principal, project_id: str, applicable: dict[str, Any], db: sqlite3.Connection) -> dict[str, Any]:
-        """What a card may leave out: the method's route model and its only resolution
+        """What a card may leave out: the method's route model and its default resolution
         (the fal 480p draft route), 16:9 (owner 2026-09-01), and the manuals version this credential took."""
         defaults: dict[str, Any] = {'aspect_ratio': '16:9', **route_defaults(self.workflow.config, applicable['method_id'])}
         if playbook.fetched(self.store, project_id, actor.credential_id, playbook.version(), conn=db):
